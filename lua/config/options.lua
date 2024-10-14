@@ -5,4 +5,5 @@ vim.filetype.add({
     ["${NU_HOME}/.*/resources/.*_config.json.base"] = "json",
   },
 })
-vim.b.autoformat = false
+vim.g["conjure#client#clojure#nrepl#test#current_form_names"] =
+  { "deftest", "defflow", "defspec", "defflow-i18n", "defflow-mx", "defflow-co" }
