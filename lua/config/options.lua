@@ -7,3 +7,4 @@ vim.filetype.add({
 })
 vim.g["conjure#client#clojure#nrepl#test#current_form_names"] =
   { "deftest", "defflow", "defspec", "defflow-i18n", "defflow-mx", "defflow-co" }
+vim.g.autowrap = true
