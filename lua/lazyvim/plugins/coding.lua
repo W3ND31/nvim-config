@@ -138,7 +138,7 @@ return {
       skip_ts = { "string" },
       -- skip autopair when next character is closing pair
       -- and there are more closing pairs than opening pairs
-      skip_unbalanced = true,
+      skip_unbalanced = false,
       -- better deal with markdown code blocks
       markdown = true,
     },
