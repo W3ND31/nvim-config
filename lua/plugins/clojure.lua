@@ -36,7 +36,7 @@ return {
     },
 
     -- Add s-exp mappings
-    { "PaterJason/nvim-treesitter-sexp", opts = {}, event = "LazyFile" },
+    { "PaterJason/nvim-treesitter-sexp", opts = {} },
     {
         "m00qek/baleia.nvim",
         --   version = "*",
@@ -67,7 +67,6 @@ return {
     },
     {
         "Olical/conjure",
-        event = "LazyFile",
         ft = { "clojure", "fennel" },
         config = function()
             require("conjure.main").main()

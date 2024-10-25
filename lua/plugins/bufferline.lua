@@ -1,6 +1,6 @@
 return {
 	"akinsho/bufferline.nvim",
-	opts = {
+--[[	opts = {
 		options = {
 			always_show_bufferline = true,
 			separator_style = "slant",
@@ -8,18 +8,7 @@ return {
 				style = "underline",
 			},
 			diagnostics = "nvim_lsp",
-			diagnostics_indicator = function(_, _, diag)
-				local icons = {
-					Error = " ",
-					Warn = " ",
-					Hint = " ",
-					Info = " ",
-				}
-				local ret = (diag.error and icons.Error .. diag.error .. " " or "")
-					.. (diag.warning and icons.Warn .. diag.warning or "")
-				return vim.trim(ret)
-			end,
-			offsets = {
+					offsets = {
 				{
 					filetype = "neo-tree",
 					text = "Neo-tree",
@@ -27,10 +16,6 @@ return {
 					text_align = "left",
 				},
 			},
-			get_element_icon = function(opts)
-				local ft = { octo = "" }
-				return ft[opts.filetype]
-			end,
 		},
 	},
 	keys = {
@@ -45,5 +30,5 @@ return {
 		{ "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
 		{ "[B", "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer prev" },
 		{ "]B", "<cmd>BufferLineMoveNext<cr>", desc = "Move buffer next" },
-	},
+	},--]]
 }
