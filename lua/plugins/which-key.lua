@@ -45,12 +45,56 @@ return {                -- Useful plugin to show you pending keybinds.
 
         -- Document existing key chains
         spec = {
-            { '<leader>c', group = '[C]ode',     mode = { 'n', 'x' } },
-            { '<leader>q', group = '[Q]uit',     mode = { 'n', 'x' } },
-            { '<leader>s', group = '[S]earch' },
-            { '<leader>w', group = '[W]orkspace' },
-            { '<leader>t', group = '[T]oggle' },
-            { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+            {
+                mode = { "n", "v" },
+                { '<leader>c', group = '[c]ode',  mode = { 'n', 'x' } },
+                { '<leader>q', group = '[q]uit',  mode = { 'n', 'x' } },
+                { '<leader>s', group = '[s]earch' },
+                {
+                    '<leader>w',
+                    group = '[w]indows/[w]orkspace',
+                    proxy = "<c-w>",
+                    expand = function()
+                        return require("which-key.extras").expand.win()
+                    end,
+                },
+                { '<leader>t', group = '[t]oggle' },
+                { "<leader>f", group = "[f]ile/[f]ind" },
+                { "<leader>g", group = "[g]it" },
+                { '<leader>h', group = 'git [h]unk', mode = { 'n', 'v' } },
+                { "<leader>u", group = "[u]i", icon = { icon = "󰙵 ", color = "cyan" } },
+                { "<leader>x", group = "diagnostics/quickfi[x]", icon = { icon = "󱖫 ", color = "green" } },
+                { "[", group = "prev" },
+                { "]", group = "next" },
+                { "g", group = "[g]oto" },
+                { "gs", group = "surround" },
+                { "z", group = "fold" },
+                { "<leader><tab>", group = "tabs" },
+                {
+                    "<leader>b",
+                    group = "buffer",
+                    expand = function()
+                        return require("which-key.extras").expand.buf()
+                    end,
+                },
+                { "gx", desc = "Open with system app" },
+            }
+        },
+    },
+    keys = {
+        {
+            "<leader>?",
+            function()
+                require("which-key").show({ global = false })
+            end,
+            desc = "Buffer Keymaps (which-key)",
+        },
+        {
+            "<c-w><space>",
+            function()
+                require("which-key").show({ keys = "<c-w>", loop = true })
+            end,
+            desc = "Window Hydra Mode (which-key)",
         },
     },
 }
