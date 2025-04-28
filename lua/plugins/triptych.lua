@@ -23,9 +23,19 @@ return {
 					untracked = " ",
 				},
 			},
+			extension_mappings = {
+				["<c-f>"] = {
+					mode = "n",
+					fn = function(target, _)
+						require("telescope.builtin").find_files({
+							search_dirs = { target.path },
+						})
+					end,
+				},
+			},
 		}, -- config options here
 		keys = {
-			{ "<leader>e", "<cmd>Triptych<CR>", desc = "File Explorer" },
+			{ "<leader>et", "<cmd>Triptych<CR>", desc = "File Explorer" },
 		},
 	},
 }

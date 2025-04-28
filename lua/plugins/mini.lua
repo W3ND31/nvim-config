@@ -122,7 +122,6 @@ return {
 			markdown = true,
 		},
 	},
-	{ "echasnovski/mini.cursorword" },
 	{
 		"echasnovski/mini.ai",
 		event = "VeryLazy",

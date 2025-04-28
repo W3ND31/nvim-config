@@ -17,25 +17,6 @@ return {
 		},
 	},
 	{
-		"williamboman/mason-lspconfig.nvim",
-		opts = {
-			automatic_installation = true,
-			ensure_installed = {
-				"lua_ls",
-				"clojure_lsp",
-				"bashls",
-				-- "dartls",
-				"ast_grep",
-				"vimls",
-			},
-			handlers = {
-				function(server_name) -- default handler (optional)
-					require("lspconfig")[server_name].setup({})
-				end,
-			},
-		},
-	},
-	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		opts = {
 			ensure_installed = {
@@ -53,6 +34,24 @@ return {
 			},
 			auto_update = true,
 			debounce_hours = 5,
+		},
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		opts = {
+			automatic_installation = true,
+			ensure_installed = {
+				"lua_ls",
+				"clojure_lsp",
+				"bashls",
+				"ast_grep",
+				"vimls",
+			},
+			handlers = {
+				function(server_name) -- default handler (optional)
+					require("lspconfig")[server_name].setup({})
+				end,
+			},
 		},
 	},
 	{

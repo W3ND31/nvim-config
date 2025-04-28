@@ -14,15 +14,14 @@ return {
 		},
 	},
 	keys = {
-		-- { '<C-q>',      function() require 'telescope.builtin'.quickfix() end },
-		{ "<leader> ", "<cmd> Telescope find_files <CR>", mode = { "n" }, desc = "Find Files" },
-		{ "<leader>fo", "<cmd> Telescope oldfiles <CR>", mode = { "n" }, desc = "Old Files" },
-		{ "<leader>fp", "<cmd> Telescope live_grep <CR>", mode = { "n" }, desc = "Find in Project" },
+		{ "<leader> ", "<cmd>Telescope find_files<CR>", mode = { "n" }, desc = "Find Files" },
 		-- git
 		{ "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Commits" },
 		{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Status" },
 		-- search
-		{ '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
+		{ "<leader>sp", "<cmd>Telescope live_grep<CR>", mode = { "n" }, desc = "Find in Project" },
+		{ "<leader>sr", "<cmd>Telescope registers<cr>", desc = "Registers" },
+		{ "<leader>so", "<cmd>Telescope oldfiles<CR>", mode = { "n" }, desc = "Old Files" },
 		{ "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
 		{ "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
 		{ "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
@@ -36,8 +35,7 @@ return {
 		{ "<leader>sl", "<cmd>Telescope loclist<cr>", desc = "Location List" },
 		{ "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
 		{ "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
-		{ "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
-		{ "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
+		{ "<leader>sv", "<cmd>Telescope vim_options<cr>", desc = "Options" },
 		{ "<leader>sq", "<cmd>Telescope quickfix<cr>", desc = "Quickfix List" },
 		-- ui
 		{ "<leader>uC", "<cmd>Telescope colorscheme", desc = "Colorscheme with Preview" },

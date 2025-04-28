@@ -11,7 +11,7 @@ return {
 	priority = 1000,
 	lazy = false,
 	opts = {
-		input = { enabled = true },
+		lazygit = { enabled = true },
 		toggle = {
 			map = vim.keymap.set, -- keymap.set function to use
 			which_key = true, -- integrate with which-key to show enabled/disabled icons and colors
@@ -52,6 +52,13 @@ return {
 			mode = { "n", "t" },
 			desc = "Terminal (cwd)",
 		},
+		{
+			"<leader>gg",
+			function()
+				Snacks.lazygit.open()
+			end,
+			desc = "Lazygit",
+		},
 	},
 	config = function()
 		Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
@@ -68,7 +75,6 @@ return {
 		Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
 		Snacks.toggle.dim():map("<leader>uD")
 		Snacks.toggle.animate():map("<leader>ua")
-		Snacks.toggle.indent():map("<leader>ug")
 		Snacks.toggle.scroll():map("<leader>uS")
 		Snacks.toggle({
 			name = "Illuminate",
@@ -83,6 +89,6 @@ return {
 					m.pause()
 				end
 			end,
-		}):map("<leader>ux")
+		}):map("<leader>ui")
 	end,
 }
