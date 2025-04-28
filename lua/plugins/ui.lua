@@ -21,5 +21,10 @@ return {
                 return vim.ui.input(...)
             end
         end,
+    },
+    {
+        "nvimdev/indentmini.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        opts = {},
     }
 }

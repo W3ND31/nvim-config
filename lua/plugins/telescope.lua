@@ -1,54 +1,67 @@
 return {
-  "nvim-telescope/telescope.nvim",
-  cmd = "Telescope",
-  dependencies = {
-    'nvim-lua/plenary.nvim',
-    {
-      'nvim-telescope/telescope-fzf-native.nvim',
-      build = 'make'
-    },
-    'nvim-telescope/telescope-ui-select.nvim'
-  },
-  opts = {
-    defaults = {
-      sorting_strategy = "ascending",
-      layout_config = {
-        horizontal = { prompt_position = "bottom" },
-      },
-    },
-    extensions = {
-      fzf = { fuzzy = true, override_generic_sorter = true, override_file_sorter = true, case_mode = 'smart_case' },
-      ['ui-select'] = { require 'telescope.themes'.get_dropdown() }
-    },
-    vimgrep_argument = { 'rg', '--smart-case' }
-  },
-  keys = {
-    -- { '<C-q>',      function() require 'telescope.builtin'.quickfix() end },
-    { "<leader> ",  "<cmd> Telescope find_files <CR>",   mode = { "n" }, desc = "Find Files" },
-    { "<leader>fo", "<cmd> Telescope oldfiles <CR>",     mode = { "n" }, desc = "Old Files" },
-    { "<leader>fw", "<cmd> Telescope live_grep <CR>",    mode = { "n" }, desc = "Find in Project" },
-    { "<leader>gs", "<cmd> Telescope git_status <CR>",   mode = { "n" }, desc = "Status" },
-    { "gr",         "<cmd>Telescope lsp_references<cr>", mode = { "n" }, desc = "References", },
-    {
-      "gd",
-      function()
-        require("telescope.builtin").lsp_definitions({ reuse_win = true })
-      end,
-      desc = "Goto Definition"
-    },
-    {
-      "gI",
-      function()
-        require("telescope.builtin").lsp_implementations({ reuse_win = true })
-      end,
-      desc = "Goto Implementation"
-    },
-    {
-      "gy",
-      function()
-        require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
-      end,
-      desc = "Goto T[y]pe Definition"
-    },
-  }
+	"nvim-telescope/telescope.nvim",
+	cmd = "Telescope",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-telescope/telescope-ui-select.nvim",
+	},
+	opts = {
+		defaults = {
+			sorting_strategy = "ascending",
+			layout_config = {
+				horizontal = { prompt_position = "bottom" },
+			},
+		},
+	},
+	keys = {
+		-- { '<C-q>',      function() require 'telescope.builtin'.quickfix() end },
+		{ "<leader> ", "<cmd> Telescope find_files <CR>", mode = { "n" }, desc = "Find Files" },
+		{ "<leader>fo", "<cmd> Telescope oldfiles <CR>", mode = { "n" }, desc = "Old Files" },
+		{ "<leader>fp", "<cmd> Telescope live_grep <CR>", mode = { "n" }, desc = "Find in Project" },
+		-- git
+		{ "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Commits" },
+		{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Status" },
+		-- search
+		{ '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
+		{ "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
+		{ "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
+		{ "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+		{ "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
+		{ "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
+		{ "<leader>sD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics" },
+		{ "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
+		{ "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
+		{ "<leader>sj", "<cmd>Telescope jumplist<cr>", desc = "Jumplist" },
+		{ "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
+		{ "<leader>sl", "<cmd>Telescope loclist<cr>", desc = "Location List" },
+		{ "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
+		{ "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
+		{ "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
+		{ "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
+		{ "<leader>sq", "<cmd>Telescope quickfix<cr>", desc = "Quickfix List" },
+		-- ui
+		{ "<leader>uC", "<cmd>Telescope colorscheme", desc = "Colorscheme with Preview" },
+		{ "gr", "<cmd>Telescope lsp_references<cr>", mode = { "n" }, desc = "References" },
+		{
+			"gd",
+			function()
+				require("telescope.builtin").lsp_definitions({ reuse_win = true })
+			end,
+			desc = "Goto Definition",
+		},
+		{
+			"gI",
+			function()
+				require("telescope.builtin").lsp_implementations({ reuse_win = true })
+			end,
+			desc = "Goto Implementation",
+		},
+		{
+			"gy",
+			function()
+				require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
+			end,
+			desc = "Goto T[y]pe Definition",
+		},
+	},
 }

@@ -5,6 +5,7 @@ map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 map({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save File" }) -- command + s to save :)
 map("n", "<leader>qq", "<cmd>qa<CR>", { desc = "Quit" })
 map({ "i", "x", "n", "s" }, "<C-z>", "<nop>")
+map({ "n" }, "q", "<nop>") -- Maybe one day I'll learn registers properly and disable this
 
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
@@ -30,15 +31,13 @@ map("v", "<C-S-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { des
 map("v", "<C-S-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
 
 -- Clear search and stop snippet on escape
-map({ "i", "n", "s" }, "<esc>",
-    function()
-        vim.cmd("noh")
-        if vim.snippet then
-            vim.snippet.stop()
-        end
-        return "<esc>"
-    end,
-    { expr = true, desc = "Escape and Clear hlsearch" })
+map({ "i", "n", "s" }, "<esc>", function()
+	vim.cmd("noh")
+	if vim.snippet then
+		vim.snippet.stop()
+	end
+	return "<esc>"
+end, { expr = true, desc = "Escape and Clear hlsearch" })
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
 map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
@@ -63,26 +62,39 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 -- lsp keymaps
 map("n", "<leader>cl", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
-map("n", "K", function() return vim.lsp.buf.hover() end, { desc = "Hover" })
-map("n", "gK", function() return vim.lsp.buf.signature_help() end, { desc = "Signature Help", })
-map("i", "<c-k>", function() return vim.lsp.buf.signature_help() end, { desc = "Signature Help", })
-map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
-map({ "n", "v" },
-    "<leader>cA",
-    setmetatable({}, {
-        __index = function(_, action)
-            return function()
-                vim.lsp.buf.code_action({
-                    apply = true,
-                    context = {
-                        only = { action },
-                        diagnostics = {},
-                    },
-                })
-            end
-        end,
-    }).source,
-    { desc = "Source Action" })
-map({ "n", "v" }, "<leader>cc", vim.lsp.codelens.run, { desc = "Run Codelens", })
-map("n", "<leader>cC", vim.lsp.codelens.refresh, { desc = "Refresh & Display Codelens", })
+map("n", "K", function()
+	return vim.lsp.buf.hover()
+end, { desc = "Hover" })
+map("n", "gK", function()
+	return vim.lsp.buf.signature_help()
+end, { desc = "Signature Help" })
+map("i", "<c-k>", function()
+	return vim.lsp.buf.signature_help()
+end, { desc = "Signature Help" })
+-- map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+map(
+	{ "n", "v" },
+	"<leader>cA",
+	setmetatable({}, {
+		__index = function(_, action)
+			return function()
+				vim.lsp.buf.code_action({
+					apply = true,
+					context = {
+						only = { action },
+						diagnostics = {},
+					},
+				})
+			end
+		end,
+	}).source,
+	{ desc = "Source Action" }
+)
+map({ "n", "v" }, "<leader>cc", vim.lsp.codelens.run, { desc = "Run Codelens" })
+map("n", "<leader>cC", vim.lsp.codelens.refresh, { desc = "Refresh & Display Codelens" })
 map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+map("n", "<leader>cL", function()
+	require("lint").try_lint()
+end, { desc = "Rename" })
+map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+

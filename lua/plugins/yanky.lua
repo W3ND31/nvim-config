@@ -1,8 +1,8 @@
 return {
-    "gbprod/yanky.nvim",
-    opts = {
-    highlight={
-      timer = 300
-    }
-    },
+	"gbprod/yanky.nvim",
+	opts = {
+		highlight = {
+			timer = 300,
+		},
+	},
 }
