@@ -4,8 +4,16 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			clojure = { "cljfmt" },
-			sh = { "shfmt" },
 			dart = { "ast_grep" },
+			-- beautysh
+			sh = { "beautysh" },
+			zsh = { "beautysh" },
+			--prettier
+			javascript = { "prettier" },
+			typescript = { "prettier" },
+			html = { "prettier" },
+			json = { "prettier" },
+			css = { "prettier" },
 		},
 		notify_on_error = true,
 		notify_no_formatters = true,
@@ -24,7 +32,7 @@ return {
 			function()
 				require("conform").format()
 			end,
-			mode = { "n", "v" },
+			mode = { "n", "v", "i" },
 			desc = "Format",
 		},
 	},

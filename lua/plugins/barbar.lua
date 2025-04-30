@@ -12,7 +12,8 @@ return {
 		tabpages = true,
 		clickable = true,
 		sidebar_filetypes = {
-			["neo-tree"] = {},
+			NvimTree = true,
+			["neo-tree"] = {event = 'BufWipeout', text = '', align = 'left'},
 		},
 	},
 	keys = {

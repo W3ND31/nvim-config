@@ -3,6 +3,7 @@ return {
     opts = {
         projects = {
             "~/dev/nu/*",
+            "~/dev/*",
             "~/dev/Greenhouse/*",
             "~/.config/nvim*",
             "~/.config/*tty*",

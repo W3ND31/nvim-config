@@ -46,6 +46,11 @@ return {
 				"bashls",
 				"ast_grep",
 				"vimls",
+				"eslint",
+				"cssls",
+				"html",
+				"bashls",
+				"jsonls",
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)
@@ -66,6 +71,13 @@ return {
 			require("lint").linters_by_ft = {
 				clojure = { "clj-kondo" },
 				lua = { "luacheck" },
+				sh = { "shellcheck" },
+				zsh = { "shellcheck" },
+				javascript = { "eslint_d" },
+				typescript = { "eslint_d" },
+				html = { "htmlhint" },
+				json = { "jsonlint" },
+				css = { "stylelint" },
 			}
 		end,
 	},

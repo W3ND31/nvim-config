@@ -31,7 +31,7 @@ return {
         "vim",
         "vimdoc",
         "xml",
-        "yaml"
+        "yaml",
       },
 
       highlight = {

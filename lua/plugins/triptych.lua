@@ -35,7 +35,7 @@ return {
 			},
 		}, -- config options here
 		keys = {
-			{ "<leader>et", "<cmd>Triptych<CR>", desc = "File Explorer" },
+			{ "<leader>t", "<cmd>Triptych<CR>", desc = "Triptych" },
 		},
 	},
 }
