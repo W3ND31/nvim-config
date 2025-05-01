@@ -44,7 +44,7 @@ return {
 		-- post_hook = nil,
 	},
 	keys = {
-		{ "<leader>/", "gcc", mode = "n", desc = "Comment", remap = true },
-		{ "<leader>/", "gc", mode = "v", desc = "Comment", remap = true },
+		-- { "<leader>/", "gcc", mode = "n", desc = "Comment", remap = true },
+		-- { "<leader>/", "gc", mode = "v", desc = "Comment", remap = true },
 	},
 }

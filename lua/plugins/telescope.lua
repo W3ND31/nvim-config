@@ -4,7 +4,7 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-telescope/telescope-ui-select.nvim",
-    "nvim-telescope/telescope-fzf-native.nvim"
+		"nvim-telescope/telescope-fzf-native.nvim",
 	},
 	opts = {
 		defaults = {
@@ -40,27 +40,27 @@ return {
 		{ "<leader>sq", "<cmd>Telescope quickfix<cr>", desc = "Quickfix List" },
 		-- ui
 		{ "<leader>uC", "<cmd>Telescope colorscheme", desc = "Colorscheme with Preview" },
-		-- { "gr", "<cmd>Telescope lsp_references<cr>", mode = { "n" }, desc = "References" },
-		-- {
-		-- 	"gd",
-		-- 	function()
-		-- 		require("telescope.builtin").lsp_definitions({ reuse_win = true })
-		-- 	end,
-		-- 	desc = "Goto Definition",
-		-- },
-		-- {
-		-- 	"gI",
-		-- 	function()
-		-- 		require("telescope.builtin").lsp_implementations({ reuse_win = true })
-		-- 	end,
-		-- 	desc = "Goto Implementation",
-		-- },
-		-- {
-		-- 	"gy",
-		-- 	function()
-		-- 		require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
-		-- 	end,
-		-- 	desc = "Goto T[y]pe Definition",
-		-- },
+		{ "gr", "<cmd>Telescope lsp_references<cr>", mode = { "n" }, desc = "References" },
+		{
+			"gd",
+			function()
+				require("telescope.builtin").lsp_definitions({ reuse_win = true })
+			end,
+			desc = "Goto Definition",
+		},
+		{
+			"gI",
+			function()
+				require("telescope.builtin").lsp_implementations({ reuse_win = true })
+			end,
+			desc = "Goto Implementation",
+		},
+		{
+			"gy",
+			function()
+				require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
+			end,
+			desc = "Goto T[y]pe Definition",
+		},
 	},
 }
