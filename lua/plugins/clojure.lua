@@ -18,6 +18,7 @@ return {
 		"Olical/conjure",
 		ft = { "clojure", "fennel", "python" }, -- etc
 		lazy = true,
+    version = "*",
 		init = function()
 			-- Set configuration options here
 			-- Uncomment this to get verbose logging to help diagnose internal Conjure issues
