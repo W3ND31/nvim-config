@@ -1,5 +1,6 @@
 require "config.options"
 require "config.mappings"
+require "config.deleted-mappings"
 require "config.commands"
 
 -- Bootstrap lazy.nvim

@@ -32,11 +32,11 @@ map("v", "<C-S-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv",
 
 -- Clear search and stop snippet on escape
 map({ "i", "n", "s" }, "<esc>", function()
-	vim.cmd("noh")
-	if vim.snippet then
-		vim.snippet.stop()
-	end
-	return "<esc>"
+  vim.cmd("noh")
+  if vim.snippet then
+    vim.snippet.stop()
+  end
+  return "<esc>"
 end, { expr = true, desc = "Escape and Clear hlsearch" })
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
@@ -63,41 +63,42 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 map("n", "<leader>cl", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
 map("n", "K", function()
-	return vim.lsp.buf.hover()
+  return vim.lsp.buf.hover()
 end, { desc = "Hover" })
 map("n", "gK", function()
-	return vim.lsp.buf.signature_help()
+  return vim.lsp.buf.signature_help()
 end, { desc = "Signature Help" })
 map("i", "<c-k>", function()
-	return vim.lsp.buf.signature_help()
+  return vim.lsp.buf.signature_help()
 end, { desc = "Signature Help" })
 map(
-	{ "n", "v" },
-	"<leader>cA",
-	setmetatable({}, {
-		__index = function(_, action)
-			return function()
-				vim.lsp.buf.code_action({
-					apply = true,
-					context = {
-						only = { action },
-						diagnostics = {},
-					},
-				})
-			end
-		end,
-	}).source,
-	{ desc = "Source Action" }
+  { "n", "v" },
+  "<leader>cA",
+  setmetatable({}, {
+    __index = function(_, action)
+      return function()
+        vim.lsp.buf.code_action({
+          apply = true,
+          context = {
+            only = { action },
+            diagnostics = {},
+          },
+        })
+      end
+    end,
+  }).source,
+  { desc = "Source Action" }
 )
 map({ "n", "v" }, "<leader>cc", vim.lsp.codelens.run, { desc = "Run Codelens" })
 map("n", "<leader>cC", vim.lsp.codelens.refresh, { desc = "Refresh & Display Codelens" })
 map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
 map("n", "<leader>cL", function()
-	require("lint").try_lint()
+  require("lint").try_lint()
 end, { desc = "Rename" })
 map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 
-vim.keymap.del('n', 'grr') -- Remove a keymap 'grr' no modo normal
-vim.keymap.del('n', 'gra') -- Remove a keymap 'gra' no modo normal (se for essa a que você se referia)
-vim.keymap.del('n', 'grn') -- Remove a keymap 'grn' no modo normal
-vim.keymap.del('n', 'gri') -- Remove a keymap 'gri' no modo normal
+-- Formatting keymaps
+map({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, { desc = "Format" })
+map({ "i", "n", "v" }, "È", function()
+  vim.lsp.buf.format()
+end, { desc = "Format" })
