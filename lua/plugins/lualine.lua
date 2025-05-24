@@ -1,7 +1,8 @@
 return {
-    'nvim-lualine/lualine.nvim',
-    opts = {
-        theme = "auto",
-    },
-    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  'nvim-lualine/lualine.nvim',
+  opts = {
+    theme = "auto",
+    extensions = { 'toggleterm' }
+  },
+  dependencies = { 'nvim-tree/nvim-web-devicons' }
 }

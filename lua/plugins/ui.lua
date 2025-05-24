@@ -1,3 +1,4 @@
+---@diagnostic disable-next-line: different-requires
 local lazy = require("lazy")
 
 return {

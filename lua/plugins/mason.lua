@@ -17,8 +17,27 @@ return {
 
       },
       handlers = {
-        function(server_name) -- default handler (optional)
-          require("lspconfig")[server_name].setup({})
+        function(server_name)
+          local capabilities = vim.lsp.protocol.make_client_capabilities()
+          capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+
+          local servers = {
+            lua_ls = {
+              settings = {
+                Lua = {
+                  completion = {
+                    callSnippet = "Replace",
+                  },
+                  diagnostics = { disable = { "missing-fields" } },
+                },
+              },
+            },
+          }
+
+          local server = servers[server_name] or {}
+          server.capabilities = capabilities
+
+          require("lspconfig")[server_name].setup(server)
         end,
       },
     },
@@ -40,7 +59,10 @@ return {
           { "<leader>cm", "<cmd>Mason<CR>", desc = "Mason" },
         },
       },
-      { "neovim/nvim-lspconfig" },
+      {
+        "neovim/nvim-lspconfig",
+        lazy = false,
+      },
     }
   },
   {

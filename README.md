@@ -11,9 +11,9 @@ git clone https://github.com/W3ND31/nvim ~/.config/nvim && nvim
 # Todo
 
 - [ ] Solve clojure dependencies `get to definition` problem
-- [ ] Improve completion system (maybe change to `coq-nvim`)
 - [ ] Improve LSP handling
 - [ ] Maybe add something with copilot
+- [ ] Add toggle options 
 
 # Reset
 

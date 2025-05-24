@@ -6,6 +6,7 @@ map({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save File" }) 
 map("n", "<leader>qq", "<cmd>qa<CR>", { desc = "Quit" })
 map({ "i", "x", "n", "s" }, "<C-z>", "<nop>")
 map({ "n" }, "q", "<nop>") -- Maybe one day I'll learn registers properly and disable this
+map({ "n" }, "<C-t>", "<nop>")
 
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
@@ -101,4 +102,20 @@ map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" 
 map({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, { desc = "Format" })
 map({ "i", "n", "v" }, "È", function()
   vim.lsp.buf.format()
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, false, true), 'n', false)
 end, { desc = "Format" })
+
+-- Terminal
+function _G.set_terminal_keymaps()
+  local opts = { buffer = 0 }
+  vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
+  vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
+  vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
+  vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
+  vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+  vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
+end
+
+-- if you only want these mappings for toggle term use term://*toggleterm#* instead
+vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')

@@ -11,7 +11,6 @@ return {
 	priority = 1000,
 	lazy = false,
 	opts = {
-		lazygit = { enabled = true },
 		toggle = {
 			map = vim.keymap.set, -- keymap.set function to use
 			which_key = true, -- integrate with which-key to show enabled/disabled icons and colors
@@ -31,17 +30,6 @@ return {
 				disabled = "Enable ",
 			},
 		},
-		terminal = {
-			enabled = true,
-			win = {
-				keys = {
-					nav_h = { "<C-h>", term_nav("h"), desc = "Go to Left Window", expr = true, mode = "t" },
-					nav_j = { "<C-j>", term_nav("j"), desc = "Go to Lower Window", expr = true, mode = "t" },
-					nav_k = { "<C-k>", term_nav("k"), desc = "Go to Upper Window", expr = true, mode = "t" },
-					nav_l = { "<C-l>", term_nav("l"), desc = "Go to Right Window", expr = true, mode = "t" },
-				},
-			},
-		},
 	},
 	keys = {
 		{
@@ -51,13 +39,6 @@ return {
 			end,
 			mode = { "n", "t" },
 			desc = "Terminal (cwd)",
-		},
-		{
-			"<leader>gg",
-			function()
-				Snacks.lazygit.open()
-			end,
-			desc = "Lazygit",
 		},
 	},
 	config = function()
