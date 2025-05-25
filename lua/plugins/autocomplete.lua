@@ -1,4 +1,4 @@
-return { -- Autocompletion
+return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   dependencies = {
@@ -19,7 +19,6 @@ return { -- Autocompletion
     "rafamadriz/friendly-snippets",
   },
   config = function()
-    -- See `:help cmp`
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     luasnip.config.setup({})
@@ -59,7 +58,9 @@ return { -- Autocompletion
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "path" },
-        { name = 'nvim_lsp_signature_help' }
+        { name = 'nvim_lsp_signature_help' },
+        { name = "lazydev" },
+        { name = 'render-markdown' },
       },
     })
   end,
