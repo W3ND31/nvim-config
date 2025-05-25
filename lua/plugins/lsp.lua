@@ -19,7 +19,6 @@ return {
       handlers = {
         function(server_name)
           local capabilities = vim.lsp.protocol.make_client_capabilities()
-          capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
           local servers = {}
 
@@ -52,8 +51,6 @@ return {
         "neovim/nvim-lspconfig",
         lazy = false,
         config = function()
-          local capabilities = vim.lsp.protocol.make_client_capabilities()
-          capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
           local function custom_clojure_root_dir(pattern)
             local util = require("lspconfig.util")

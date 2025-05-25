@@ -33,11 +33,11 @@ map("v", "<C-S-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv",
 
 -- Clear search and stop snippet on escape
 map({ "i", "n", "s" }, "<esc>", function()
-  vim.cmd("noh")
-  if vim.snippet then
-    vim.snippet.stop()
-  end
-  return "<esc>"
+	vim.cmd("noh")
+	if vim.snippet then
+		vim.snippet.stop()
+	end
+	return "<esc>"
 end, { expr = true, desc = "Escape and Clear hlsearch" })
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
@@ -64,58 +64,58 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 map("n", "<leader>cl", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
 map("n", "K", function()
-  return vim.lsp.buf.hover()
+	return vim.lsp.buf.hover()
 end, { desc = "Hover" })
 map("n", "gK", function()
-  return vim.lsp.buf.signature_help()
+	return vim.lsp.buf.signature_help()
 end, { desc = "Signature Help" })
 map("i", "<c-k>", function()
-  return vim.lsp.buf.signature_help()
+	return vim.lsp.buf.signature_help()
 end, { desc = "Signature Help" })
 map(
-  { "n", "v" },
-  "<leader>cA",
-  setmetatable({}, {
-    __index = function(_, action)
-      return function()
-        vim.lsp.buf.code_action({
-          apply = true,
-          context = {
-            only = { action },
-            diagnostics = {},
-          },
-        })
-      end
-    end,
-  }).source,
-  { desc = "Source Action" }
+	{ "n", "v" },
+	"<leader>cA",
+	setmetatable({}, {
+		__index = function(_, action)
+			return function()
+				vim.lsp.buf.code_action({
+					apply = true,
+					context = {
+						only = { action },
+						diagnostics = {},
+					},
+				})
+			end
+		end,
+	}).source,
+	{ desc = "Source Action" }
 )
 map({ "n", "v" }, "<leader>cc", vim.lsp.codelens.run, { desc = "Run Codelens" })
 map("n", "<leader>cC", vim.lsp.codelens.refresh, { desc = "Refresh & Display Codelens" })
 map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
 map("n", "<leader>cL", function()
-  require("lint").try_lint()
+	require("lint").try_lint()
 end, { desc = "Rename" })
 map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 
 -- Formatting keymaps
-map({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, { desc = "Format" })
+map({ "n", "v" }, "<leader>cF", vim.lsp.buf.format, { desc = "Format" })
 map({ "i", "n", "v" }, "È", function()
-  vim.lsp.buf.format()
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, false, true), 'n', false)
+	vim.lsp.buf.format()
+	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
 end, { desc = "Format" })
 
 -- Terminal
 function _G.set_terminal_keymaps()
-  local opts = { buffer = 0 }
-  vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
-  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
-  vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
-  vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
-  vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
-  vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
-  vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
+	local opts = { buffer = 0 }
+	vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+	vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
+	vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+	vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+	vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+	vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
+	vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
 end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
-vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
+vim.cmd("autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()")

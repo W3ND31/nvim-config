@@ -30,4 +30,7 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {},
 	},
+  {
+    "HiPhish/rainbow-delimiters.nvim"
+  }
 }

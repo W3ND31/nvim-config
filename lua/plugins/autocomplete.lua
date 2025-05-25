@@ -1,67 +1,55 @@
 return {
-  "hrsh7th/nvim-cmp",
-  event = "InsertEnter",
-  dependencies = {
-    {
-      "L3MON4D3/LuaSnip",
-      build = (function()
-        if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
-          return
-        end
-        return "make install_jsregexp"
-      end)(),
-    },
-    "saadparwaiz1/cmp_luasnip",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-nvim-lsp-signature-help",
-    "PeterJason/cmp-conjure",
-    "rafamadriz/friendly-snippets",
-  },
-  config = function()
-    local cmp = require("cmp")
-    local luasnip = require("luasnip")
-    luasnip.config.setup({})
+	{
+		"saghen/blink.compat",
+		version = "*",
+		lazy = true,
+	},
+	{
+		"saghen/blink.cmp",
+		version = "*",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			"PaterJason/cmp-conjure",
+			-- "mikavilpas/blink-ripgrep.nvim",
+			"L3MON4D3/LuaSnip",
+		},
+		opts = {
+			keymap = { preset = "super-tab" },
+			appearance = { use_nvim_cmp_as_default = true, nerd_font_variant = "MesloLGS NF" },
+			completion = {
+				ghost_text = { enabled = true },
+				menu = {
+					draw = {
+						columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "source_name" } },
+					},
+				},
+				documentation = { auto_show = true },
+			},
+			snippets = { preset = "luasnip" },
+			sources = {
+				default = { "lsp", "path", "snippets", "buffer", "conjure", "lazydev" },
+				providers = {
+					lsp = {
+						name = "lsp",
+						enabled = true,
+						module = "blink.cmp.sources.lsp",
+						kind = "LSP",
+					},
+					conjure = {
+						name = "conjure",
+						module = "blink.compat.source",
+					},
+					lazydev = {
+						name = "LazyDev",
+						module = "lazydev.integrations.blink",
+						-- make lazydev completions top priority (see `:h blink.cmp`)
+					},
+				},
+			},
 
-    cmp.setup({
-      snippet = {
-        expand = function(args)
-          luasnip.lsp_expand(args.body)
-        end,
-      },
-      completion = { completeopt = "menu,menuone,noinsert" },
-      mapping = cmp.mapping.preset.insert({
-        -- Select the [n]ext item
-        ["<C-n>"] = cmp.mapping.select_next_item(),
-        -- Select the [p]revious item
-        ["<C-p>"] = cmp.mapping.select_prev_item(),
-
-        -- Accept the completion.
-        ["<Tab>"] = cmp.mapping.confirm({ select = true }),
-
-        -- Manually trigger a completion from nvim-cmp.
-        ["<C-Space>"] = cmp.mapping.complete({}),
-
-        ["<C-l>"] = cmp.mapping(function()
-          if luasnip.expand_or_locally_jumpable() then
-            luasnip.expand_or_jump()
-          end
-        end, { "i", "s" }),
-        ["<C-h>"] = cmp.mapping(function()
-          if luasnip.locally_jumpable(-1) then
-            luasnip.jump(-1)
-          end
-        end, { "i", "s" }),
-      }),
-      sources = {
-        { name = 'conjure' },
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "path" },
-        { name = 'nvim_lsp_signature_help' },
-        { name = "lazydev" },
-        { name = 'render-markdown' },
-      },
-    })
-  end,
+			signature = { enabled = true },
+			fuzzy = { implementation = "lua" },
+		},
+		lazy = false,
+	},
 }
