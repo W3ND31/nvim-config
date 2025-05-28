@@ -10,12 +10,14 @@ return {
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 			"PaterJason/cmp-conjure",
-			-- "mikavilpas/blink-ripgrep.nvim",
 			"L3MON4D3/LuaSnip",
 		},
 		opts = {
 			keymap = { preset = "super-tab" },
-			appearance = { use_nvim_cmp_as_default = true, nerd_font_variant = "MesloLGS NF" },
+			appearance = {
+				use_nvim_cmp_as_default = true,
+				nerd_font_variant = "MesloLGS NF",
+			},
 			completion = {
 				ghost_text = { enabled = true },
 				menu = {

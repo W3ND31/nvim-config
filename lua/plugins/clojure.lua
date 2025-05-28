@@ -25,7 +25,9 @@ return {
 		end,
 		init = function()
 			vim.g["conjure#mapping#doc_word"] = "K"
-			vim.g["conjure#mapping#def_word"] = "gd"
+			-- vim.g["conjure#mapping#def_word"] = "gd"
+			vim.g["conjure#client#clojure#nrepl#eval#auto_require"] = false
+			vim.g["conjure#client#clojure#nrepl#connection#auto_repl#enabled"] = false
 
 			-- Print color codes if baleia.nvim is available
 			vim.g["conjure#log#strip_ansi_escape_sequences_line_limit"] = 0
@@ -40,7 +42,6 @@ return {
 				end,
 			})
 		end,
-
 		dependencies = {
 			{
 				"clojure-vim/vim-jack-in",
@@ -52,9 +53,7 @@ return {
 						},
 					},
 				},
-				config = function()
-					--
-				end,
+				config = function() end,
 			},
 		},
 	},

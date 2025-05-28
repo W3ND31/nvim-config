@@ -30,7 +30,16 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {},
 	},
-  {
-    "HiPhish/rainbow-delimiters.nvim"
-  }
+	{
+		"HiPhish/rainbow-delimiters.nvim",
+	},
+	{
+		"arnamak/stay-centered.nvim",
+		lazy = false,
+		opts = {
+			enabled = true,
+			allow_scroll_move = true,
+			disable_on_mouse = true,
+		},
+	},
 }
