@@ -48,6 +48,7 @@ return {
 			},
 			{
 				"neovim/nvim-lspconfig",
+				version = "*",
 				lazy = false,
 				config = function()
 					local function custom_clojure_root_dir(pattern)
