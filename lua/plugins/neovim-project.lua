@@ -3,10 +3,13 @@ return {
 	opts = {
 		projects = {
 			"~/dev/nu/*",
+			"~/dev/nu/mini-meta-repo/stormguild",
 			"~/dev/*",
 			"~/dev/Greenhouse/*",
 			"~/.config/nvim*",
 			"~/.config/*tty*",
+      "~/stow/*"
+
 		},
 		picker = {
 			type = "fzf-lua",

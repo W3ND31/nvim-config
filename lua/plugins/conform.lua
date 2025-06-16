@@ -1,10 +1,10 @@
 return {
 	{
 		"stevearc/conform.nvim",
+    version = "*",
 		opts = {
 			formatters_by_ft = {
 				lua = { "stylua" },
-				dart = { "ast_grep" },
 				-- beautysh
 				sh = { "beautysh" },
 				zsh = { "beautysh" },

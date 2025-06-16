@@ -50,7 +50,20 @@ return {
 			},
 
 			signature = { enabled = true },
-			fuzzy = { implementation = "lua" },
+			fuzzy = {
+				implementation = "lua",
+				sorts = {
+					function(a, b)
+						if (a.client_name == nil or b.client_name == nil) or (a.client_name == b.client_name) then
+							return
+						end
+						return b.client_name == "clojure_lsp"
+					end,
+					-- default sorts
+					"score",
+					"sort_text",
+				},
+			},
 		},
 		lazy = false,
 	},

@@ -4,7 +4,7 @@ local lazy = require("lazy")
 return {
 	{ "lewis6991/gitsigns.nvim" },
 	{ "nvim-tree/nvim-web-devicons" },
-	{ "MunifTanjim/nui.nvim" },
+	{ "MunifTanjim/nui.nvim", version = "*" },
 	{
 		"nvim-lua/plenary.nvim",
 		lazy = true,
