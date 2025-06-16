@@ -13,7 +13,6 @@ git clone https://github.com/W3ND31/nvim ~/.config/nvim && nvim
 - [ ] Solve clojure dependencies `get to definition` problem
 - [ ] Maybe add something with copilot
 - [ ] Add toggle options 
-- [ ] Maybe go back to conform (formatting) 
 
 # Reset
 
