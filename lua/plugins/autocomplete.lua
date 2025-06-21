@@ -1,70 +1,66 @@
 return {
 	{
-		"saghen/blink.compat",
+		"hrsh7th/nvim-cmp",
 		version = "*",
-		lazy = true,
-	},
-	{
-		"saghen/blink.cmp",
-		version = "1.3.1",
+		event = "InsertEnter",
 		dependencies = {
-			"rafamadriz/friendly-snippets",
+			{
+				"L3MON4D3/LuaSnip",
+				build = (function()
+					if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
+						return
+					end
+					return "make install_jsregexp"
+				end)(),
+			},
+			"saadparwaiz1/cmp_luasnip",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
 			"PaterJason/cmp-conjure",
-			"L3MON4D3/LuaSnip",
+			"rafamadriz/friendly-snippets",
 		},
-		opts = {
-			keymap = { preset = "super-tab" },
-			appearance = {
-				use_nvim_cmp_as_default = true,
-				nerd_font_variant = "MesloLGS NF",
-			},
-			completion = {
-				ghost_text = { enabled = true },
-				menu = {
-					draw = {
-						columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "source_name" } },
-					},
-				},
-				documentation = { auto_show = true },
-			},
-			snippets = { preset = "luasnip" },
-			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "conjure", "lazydev" },
-				providers = {
-					lsp = {
-						name = "lsp",
-						enabled = true,
-						module = "blink.cmp.sources.lsp",
-						kind = "LSP",
-					},
-					conjure = {
-						name = "conjure",
-						module = "blink.compat.source",
-					},
-					lazydev = {
-						name = "LazyDev",
-						module = "lazydev.integrations.blink",
-						-- make lazydev completions top priority (see `:h blink.cmp`)
-					},
-				},
-			},
+		config = function()
+			local cmp = require("cmp")
+			local luasnip = require("luasnip")
+			luasnip.config.setup({})
 
-			signature = { enabled = true },
-			fuzzy = {
-				implementation = "lua",
-				sorts = {
-					function(a, b)
-						if (a.client_name == nil or b.client_name == nil) or (a.client_name == b.client_name) then
-							return
-						end
-						return b.client_name == "clojure_lsp"
+			cmp.setup({
+				snippet = {
+					expand = function(args)
+						luasnip.lsp_expand(args.body)
 					end,
-					-- default sorts
-					"score",
-					"sort_text",
 				},
-			},
-		},
-		lazy = false,
+				window = {
+					completion = cmp.config.window.bordered(),
+					documentation = cmp.config.window.bordered(),
+				},
+				completion = { completeopt = "menu,menuone,noinsert" },
+				mapping = cmp.mapping.preset.insert({
+					["<C-n>"] = cmp.mapping.select_next_item(),
+					["<C-p>"] = cmp.mapping.select_prev_item(),
+					["<Tab>"] = cmp.mapping.confirm({ select = true }),
+					["<C-Space>"] = cmp.mapping.complete({}),
+					["<C-l>"] = cmp.mapping(function()
+						if luasnip.expand_or_locally_jumpable() then
+							luasnip.expand_or_jump()
+						end
+					end, { "i", "s" }),
+					["<C-h>"] = cmp.mapping(function()
+						if luasnip.locally_jumpable(-1) then
+							luasnip.jump(-1)
+						end
+					end, { "i", "s" }),
+				}),
+				sources = {
+					{ name = "nvim_lsp" },
+					{ name = "luasnip" },
+					{ name = "path" },
+					{ name = "buffer" },
+					{ name = "nvim_lsp_signature_help" },
+				},
+			})
+		end,
 	},
 }
