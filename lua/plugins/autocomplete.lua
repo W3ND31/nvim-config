@@ -18,6 +18,7 @@ return {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"chrisgrieser/cmp_yanky",
 			"PaterJason/cmp-conjure",
 			"rafamadriz/friendly-snippets",
 		},
@@ -59,6 +60,7 @@ return {
 					{ name = "path" },
 					{ name = "buffer" },
 					{ name = "nvim_lsp_signature_help" },
+					{ name = "cmp_yanky" },
 				},
 			})
 		end,

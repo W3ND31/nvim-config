@@ -1,5 +1,7 @@
 return {
 	"coffebar/neovim-project",
+	lazy = false,
+	priority = 100,
 	opts = {
 		projects = {
 			"~/dev/nu/*",
@@ -8,11 +10,16 @@ return {
 			"~/dev/Greenhouse/*",
 			"~/.config/nvim*",
 			"~/.config/*tty*",
-      "~/stow/*"
-
+			"~/stow/*",
 		},
 		picker = {
-			type = "fzf-lua",
+			type = "telescope", -- or "fzf-lua"
+			preview = {
+				enabled = true, -- show directory structure in Telescope preview
+				git_status = true, -- show branch name, an ahead/behind counter, and the git status of each file/folder
+				git_fetch = true, -- fetch from remote, used to display the number of commits ahead/behind, requires git authorization
+				show_hidden = true, -- show hidden files/folders
+			},
 		},
 		dashboard_mode = true,
 	},
@@ -27,6 +34,4 @@ return {
 		{ "Shatur/neovim-session-manager" },
 		{ "ibhagwan/fzf-lua", version = "*" },
 	},
-	lazy = false,
-	priority = 100,
 }

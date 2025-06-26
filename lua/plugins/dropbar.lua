@@ -1,5 +1,6 @@
 return {
 	"Bekaboo/dropbar.nvim",
+	enabled = false,
 	version = "*",
 	dependencies = {
 		"nvim-telescope/telescope-fzf-native.nvim",

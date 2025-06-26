@@ -2,8 +2,13 @@ return {
 	{
 		"m00qek/baleia.nvim",
 		version = "*",
-		config = function()
-			vim.g.conjure_baleia = require("baleia").setup({ line_starts_at = 3 })
+		lazy = true,
+		ft = { "clojure", "fennel" },
+		opts = {
+			line_starts_at = 3,
+		},
+		config = function(opts)
+			vim.g.conjure_baleia = require("baleia").setup(opts)
 
 			vim.api.nvim_create_augroup("ConjureBaleia", { clear = true })
 
@@ -16,8 +21,8 @@ return {
 	},
 	{
 		"Olical/conjure",
-		ft = { "clojure", "fennel" },
 		lazy = true,
+		ft = { "clojure", "fennel" },
 		version = "*",
 		config = function()
 			require("conjure.main").main()
@@ -25,7 +30,6 @@ return {
 		end,
 		init = function()
 			vim.g["conjure#mapping#doc_word"] = "K"
-			-- vim.g["conjure#mapping#def_word"] = "gd"
 			vim.g["conjure#client#clojure#nrepl#eval#auto_require"] = false
 			vim.g["conjure#client#clojure#nrepl#connection#auto_repl#enabled"] = false
 
@@ -36,15 +40,16 @@ return {
 			vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 				pattern = "conjure-log-*",
 				callback = function()
-					local buffer = vim.api.nvim_get_current_buf()
-					vim.diagnostic.enable(false, { bufnr = buffer })
-					vim.g.conjure_baleia.automatically(buffer)
+					vim.diagnostic.enable(false, { bufnr = vim.api.nvim_get_current_buf() })
+					vim.g.conjure_baleia.automatically(vim.api.nvim_get_current_buf())
 				end,
 			})
 		end,
 		dependencies = {
 			{
 				"clojure-vim/vim-jack-in",
+				lazy = true,
+				ft = { "clojure", "fennel" },
 				dependencies = {
 					{
 						"radenling/vim-dispatch-neovim",
@@ -55,10 +60,28 @@ return {
 				},
 				config = function() end,
 			},
+			{
+				"PaterJason/cmp-conjure",
+				lazy = true,
+				ft = { "clojure", "fennel" },
+			},
 		},
 	},
 	{
+		"PaterJason/cmp-conjure",
+		ft = { "clojure", "fennel" },
+		lazy = true,
+		config = function()
+			local cmp = require("cmp")
+			local config = cmp.get_config()
+			table.insert(config.sources, { name = "conjure" })
+			return cmp.setup(config)
+		end,
+	},
+	{
 		"julienvincent/nvim-paredit",
+		ft = { "clojure", "fennel" },
+		lazy = true,
 		opts = {},
 		config = function(_, opts)
 			local paredit = require("nvim-paredit")

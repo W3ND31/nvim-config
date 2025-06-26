@@ -1,7 +1,6 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	version = "*",
-	enabled = true,
 	lazy = false,
 	event = { "BufReadPost", "BufNewFile", "VeryLazy" },
 	opts = {
@@ -35,7 +34,7 @@ return {
 				},
 			},
 			lualine_x = {
-				"fancy_lsp_servers",
+				"fancy_lsp_servers", -- Investigate if the lsp loading can be included on lualine instead ahead it
 				{ "fancy_macro" },
 				{ "fancy_searchcount" },
 			},

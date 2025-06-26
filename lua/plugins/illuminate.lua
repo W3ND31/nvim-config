@@ -1,13 +1,9 @@
 return {
 	"RRethy/vim-illuminate",
 	opts = {
-		delay = 200,
-		large_file_cutoff = 2000,
-		large_file_overrides = {
-			providers = { "lsp" },
-		},
+		delay = 100,
 	},
-  config = function(_, opts)
-      require("illuminate").configure(opts)
-  end,
+	config = function(_, opts)
+		require("illuminate").configure(opts)
+	end,
 }

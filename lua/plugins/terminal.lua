@@ -1,8 +1,7 @@
----@diagnostic disable: undefined-global
 return {
 	{
 		"akinsho/toggleterm.nvim",
-		-- version = "*",
+		version = "*",
 		lazy = false,
 		opts = {
 			open_mapping = [[<c-/>]],

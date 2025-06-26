@@ -111,7 +111,6 @@ return {
 	{
 		"echasnovski/mini.ai",
 		version = "*",
-		event = "VeryLazy",
 		opts = function()
 			local ai = require("mini.ai")
 			return {

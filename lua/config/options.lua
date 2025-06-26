@@ -36,9 +36,9 @@ vim.filetype.add({
 	pattern = {
 		["${NU_HOME}/.*/resources/.*_config.edn.base"] = "clojure",
 		["${NU_HOME}/.*/resources/.*_config.json.base"] = "json",
-    ["${HOME}/.nurc"] = "zsh",
-    ["${HOME}/stow/nu/.nurc"] = "zsh",
-		["${HOME}/.zshrc"] = "zsh",
+    ["${HOME}/.nurc"] = "bash",
+    ["${HOME}/stow/nu/.nurc"] = "bash",
+		["${HOME}/.zshrc"] = "bash",
 		["${HOME}/.bashrc"] = "bash",
 	},
 })

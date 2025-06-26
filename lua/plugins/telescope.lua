@@ -22,7 +22,6 @@ return {
 			},
 			pickers = {
 				find_files = {
-					-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
 					find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
 				},
 			},
@@ -74,11 +73,6 @@ return {
 				desc = "Colorscheme with Preview",
 			},
 			{ "gr", "<cmd>Telescope lsp_references<cr>", mode = { "n" }, desc = "References" },
-			{
-				"gd",
-				"<cmd>lua require('telescope.builtin').lsp_definitions({ reuse_win = false })<cr>zz",
-				desc = "Goto Definition",
-			},
 			{
 				"gI",
 				function()
