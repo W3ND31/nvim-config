@@ -6,6 +6,9 @@ return {
 		projects = {
 			"~/dev/nu/*",
 			"~/dev/nu/mini-meta-repo/stormguild",
+			"~/dev/nu/mini-meta-repo/packages/credit_card/bill_details",
+			"~/dev/nu/mini-meta-repo/packages/credit_card/credit_card",
+			"~/dev/nu/mini-meta-repo/packages/tx_details/",
 			"~/dev/*",
 			"~/dev/Greenhouse/*",
 			"~/.config/nvim*",

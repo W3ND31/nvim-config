@@ -6,6 +6,7 @@ return {
 		opts = {
 			open_mapping = [[<c-/>]],
 			size = 30,
+			shell = "/bin/zsh",
 		},
 		keys = {
 			{
@@ -22,6 +23,14 @@ return {
 				mode = { "n", "t" },
 				desc = "New Terminal",
 			},
+			{
+				"<leader>gg",
+				function()
+					LazygitToggle()
+				end,
+				mode = { "n", "t" },
+				desc = "Lazygit",
+			},
 		},
 		config = function(_, opts)
 			require("toggleterm").setup(opts)
@@ -32,8 +41,21 @@ return {
 				hidden = true,
 			})
 
+			local lazygit = Terminal:new({
+				direction = "float",
+        cmd = "lazygit",
+				float_opts = {
+					border = "double",
+				},
+				hidden = true,
+			})
+
 			function FloatToggle()
 				float:toggle()
+			end
+
+			function LazygitToggle()
+				lazygit:toggle()
 			end
 		end,
 	},

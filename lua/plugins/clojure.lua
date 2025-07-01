@@ -4,9 +4,7 @@ return {
 		version = "*",
 		lazy = true,
 		ft = { "clojure", "fennel" },
-		opts = {
-			line_starts_at = 3,
-		},
+		opts = {},
 		config = function(opts)
 			vim.g.conjure_baleia = require("baleia").setup(opts)
 
@@ -35,8 +33,6 @@ return {
 
 			-- Print color codes if baleia.nvim is available
 			vim.g["conjure#log#strip_ansi_escape_sequences_line_limit"] = 0
-
-			-- Disable diagnostics in log buffer and colorize it
 			vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 				pattern = "conjure-log-*",
 				callback = function()
