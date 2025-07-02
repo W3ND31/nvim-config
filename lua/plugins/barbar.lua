@@ -24,6 +24,7 @@ return {
 		{ "<leader>b>", "<cmd>BufferMoveNext<CR>", mode = "n", desc = "Move Next" },
 		{ "<leader>b<", "<cmd>BufferMovePrevious<CR>", mode = "n", desc = "Move Previous" },
 		{ "<leader>bc", "<cmd>BufferCloseAllButCurrent<CR>", mode = "n", desc = "Close All But Current" },
+		{ "<leader>bf", "<cmd>set ft?<CR>", mode = "n", desc = "Filetype" },
 		{ "<C-q>", "<cmd>BufferClose<CR>", mode = "n", desc = "Quit Tab" },
 	},
 }

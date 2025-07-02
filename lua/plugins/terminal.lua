@@ -31,22 +31,39 @@ return {
 				mode = { "n", "t" },
 				desc = "Lazygit",
 			},
+			{
+				"<localleader>sr",
+				function()
+					ReplToggle()
+				end,
+				ft = { "clojure" },
+				mode = { "n", "t" },
+				desc = "Start Repl",
+			},
 		},
 		config = function(_, opts)
 			require("toggleterm").setup(opts)
 			local Terminal = require("toggleterm.terminal").Terminal
 
-			local float = Terminal:new({
+			local float = Terminal:new({ direction = "float", hidden = true })
+
+			local repl = Terminal:new({
 				direction = "float",
+				on_open = function(_)
+					vim.cmd("stopinsert!")
+				end,
+				cmd = "lein repl",
 				hidden = true,
 			})
 
 			local lazygit = Terminal:new({
 				direction = "float",
-        cmd = "lazygit",
-				float_opts = {
-					border = "double",
-				},
+				on_open = function(term)
+					vim.cmd("startinsert!")
+					vim.api.nvim_buf_set_keymap(term.bufnr, "t", "<esc>", "<esc>", { noremap = true, silent = true })
+				end,
+				cmd = "lazygit",
+				float_opts = { border = "double" },
 				hidden = true,
 			})
 
@@ -56,6 +73,10 @@ return {
 
 			function LazygitToggle()
 				lazygit:toggle()
+			end
+
+			function ReplToggle()
+				repl:toggle()
 			end
 		end,
 	},
