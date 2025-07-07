@@ -26,9 +26,13 @@ return {
 		end,
 	},
 	{
-		"nvimdev/indentmini.nvim",
+		"shellRaining/hlchunk.nvim",
 		event = { "BufReadPre", "BufNewFile" },
-		opts = {},
+		opts = {
+			indent = {
+				enable = true,
+			},
+		},
 	},
 	{
 		"HiPhish/rainbow-delimiters.nvim",

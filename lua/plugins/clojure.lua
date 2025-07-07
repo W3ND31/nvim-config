@@ -2,8 +2,7 @@ return {
 	{
 		"m00qek/baleia.nvim",
 		version = "*",
-		lazy = true,
-		ft = { "clojure" },
+		lazy = false,
 		opts = {},
 		config = function(opts)
 			vim.g.conjure_baleia = require("baleia").setup(opts)
@@ -20,7 +19,6 @@ return {
 	{
 		"Olical/conjure",
 		lazy = true,
-		ft = { "clojure" },
 		version = "*",
 		config = function()
 			require("conjure.main").main()
@@ -45,7 +43,6 @@ return {
 			{
 				"clojure-vim/vim-jack-in",
 				lazy = true,
-				ft = { "clojure" },
 				dependencies = {
 					{
 						"radenling/vim-dispatch-neovim",
@@ -58,14 +55,11 @@ return {
 			},
 			{
 				"PaterJason/cmp-conjure",
-				lazy = true,
-				ft = { "clojure", "fennel" },
 			},
 		},
 	},
 	{
 		"PaterJason/cmp-conjure",
-		ft = { "clojure" },
 		lazy = true,
 		config = function()
 			local cmp = require("cmp")
@@ -76,10 +70,8 @@ return {
 	},
 	{
 		"julienvincent/nvim-paredit",
-		ft = { "clojure" },
-		lazy = true,
-		opts = {
-			filetypes = { "clojure" },
-		},
+		config = function(opts)
+			require("nvim-paredit").setup(opts)
+		end,
 	},
 }

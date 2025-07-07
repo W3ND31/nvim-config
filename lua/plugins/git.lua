@@ -1,7 +1,8 @@
 return {
 	{
 		"f-person/git-blame.nvim",
-    enabled = false,
+		version = "*",
+    lazy = true,
 		event = "VeryLazy",
 		opts = {
 			enabled = false,
@@ -10,4 +11,5 @@ return {
 			virtual_text_column = 1,
 		},
 	},
+	{ "akinsho/git-conflict.nvim", version = "*", config = true },
 }

@@ -6,6 +6,7 @@ return {
 		dependencies = {
 			{
 				"L3MON4D3/LuaSnip",
+				version = "*",
 				build = (function()
 					if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
 						return
@@ -14,12 +15,10 @@ return {
 				end)(),
 			},
 			"saadparwaiz1/cmp_luasnip",
+			"PaterJason/cmp-conjure",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-nvim-lsp-signature-help",
-			"chrisgrieser/cmp_yanky",
-			"PaterJason/cmp-conjure",
 			"rafamadriz/friendly-snippets",
 		},
 		config = function()
@@ -59,8 +58,6 @@ return {
 					{ name = "luasnip" },
 					{ name = "path" },
 					{ name = "buffer" },
-					{ name = "nvim_lsp_signature_help" },
-					{ name = "cmp_yanky" },
 				},
 			})
 		end,
