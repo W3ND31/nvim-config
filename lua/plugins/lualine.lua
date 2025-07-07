@@ -25,7 +25,6 @@ return {
 			lualine_c = {
 				{
 					"fancy_cwd",
-					substitute_home = true,
 				},
 				{
 					"fancy_diagnostics",

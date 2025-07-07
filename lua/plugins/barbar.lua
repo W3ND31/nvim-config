@@ -28,3 +28,4 @@ return {
 		{ "<C-q>", "<cmd>BufferClose<CR>", mode = "n", desc = "Quit Tab" },
 	},
 }
+

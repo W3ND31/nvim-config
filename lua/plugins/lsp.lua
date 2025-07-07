@@ -5,14 +5,14 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"clojure_lsp",
-				"bashls",
-				"vimls",
-				"ts_ls",
-				"cssls",
-				"html",
-				"bashls",
-				"jsonls",
-				"gh_actions_ls",
+				-- "bashls",
+				-- "vimls",
+				-- "ts_ls",
+				-- "cssls",
+				-- "html",
+				-- "bashls",
+				-- "jsonls",
+				-- "gh_actions_ls",
 			},
 			handlers = {
 				function(server_name)
@@ -97,14 +97,14 @@ return {
 			require("lint").linters_by_ft = {
 				clojure = { "clj-kondo" },
 				lua = { "luacheck" },
-				sh = { "shellcheck" },
-				zsh = { "shellcheck" },
-				javascript = { "eslint_d" },
-				typescript = { "eslint_d" },
-				html = { "htmlhint" },
-				json = { "jsonlint" },
-				css = { "stylelint" },
-				yaml = { "yamllint" },
+				-- sh = { "shellcheck" },
+				-- zsh = { "shellcheck" },
+				-- javascript = { "eslint_d" },
+				-- typescript = { "eslint_d" },
+				-- html = { "htmlhint" },
+				-- json = { "jsonlint" },
+				-- css = { "stylelint" },
+				-- yaml = { "yamllint" },
 			}
 		end,
 	},
@@ -136,3 +136,4 @@ return {
 		},
 	},
 }
+

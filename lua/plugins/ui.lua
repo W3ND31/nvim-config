@@ -26,25 +26,6 @@ return {
 		end,
 	},
 	{
-		"shellRaining/hlchunk.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		opts = {
-			indent = {
-				enable = true,
-			},
-		},
-	},
-	{
 		"HiPhish/rainbow-delimiters.nvim",
-	},
-	{
-		"arnamak/stay-centered.nvim",
-		enabled = false,
-		lazy = false,
-		opts = {
-			enabled = true,
-			allow_scroll_move = true,
-			disable_on_mouse = true,
-		},
 	},
 }

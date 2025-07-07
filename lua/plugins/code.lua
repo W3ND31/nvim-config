@@ -7,14 +7,14 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- beautysh
-				sh = { "beautysh" },
-				zsh = { "beautysh" },
+				-- sh = { "beautysh" },
+				-- zsh = { "beautysh" },
 				--prettier
-				javascript = { "prettier" },
-				typescript = { "prettier" },
-				html = { "prettier" },
-				json = { "prettier" },
-				css = { "prettier" },
+				-- javascript = { "prettier" },
+				-- typescript = { "prettier" },
+				-- html = { "prettier" },
+				-- json = { "prettier" },
+				-- css = { "prettier" },
 			},
 			notify_on_error = true,
 			notify_no_formatters = true,
@@ -49,3 +49,4 @@ return {
 		},
 	},
 }
+
