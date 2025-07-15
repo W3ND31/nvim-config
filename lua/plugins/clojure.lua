@@ -18,6 +18,7 @@ return {
 	},
 	{
 		"Olical/conjure",
+		ft = { "clojure" },
 		lazy = true,
 		version = "*",
 		config = function()
@@ -60,7 +61,6 @@ return {
 	},
 	{
 		"PaterJason/cmp-conjure",
-		lazy = true,
 		config = function()
 			local cmp = require("cmp")
 			local config = cmp.get_config()
@@ -75,4 +75,3 @@ return {
 		end,
 	},
 }
-

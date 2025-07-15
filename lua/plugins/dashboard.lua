@@ -21,6 +21,7 @@ local art = [[
 return {
 	"goolord/alpha-nvim",
 	enabled = true,
+	version = "*",
 	event = "VimEnter",
 	lazy = true,
 	opts = function()
@@ -30,7 +31,7 @@ return {
 		dashboard.section.buttons.val = {
 			dashboard.button("p", " " .. " Projects", "<cmd>NeovimProjectDiscover<CR>"),
 			dashboard.button("n", " " .. " Nvim", "<cmd>NeovimProjectLoad ~/.config/nvim<CR>"),
-			dashboard.button("m", "󱌢"  .. "  Mason", "<cmd>Mason<CR>"),
+			dashboard.button("m", "󱌢" .. "  Mason", "<cmd>Mason<CR>"),
 			dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
 			dashboard.button("q", " " .. " Quit", ":qa<CR>"),
 		}

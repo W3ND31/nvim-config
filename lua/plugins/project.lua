@@ -38,4 +38,3 @@ return {
 		{ "ibhagwan/fzf-lua", version = "*" },
 	},
 }
-

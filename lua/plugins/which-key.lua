@@ -1,6 +1,7 @@
 return {
 	"folke/which-key.nvim",
 	version = "*",
+	event = "VeryLazy",
 	opts = {
 		preset = "modern",
 		icons = {
@@ -17,6 +18,7 @@ return {
 			{ "<leader>q", group = "Quit" },
 			{ "<leader>w", group = "Windows" },
 			{ "<leader>s", group = "Search" },
+			{ "<leader>r", group = "Repl" },
 			{ "<leader>x", group = "Trouble", icon = "" },
 			{ "<leader>u", group = "Ui" },
 			{ "<leader><TAB>", group = "Tab" },

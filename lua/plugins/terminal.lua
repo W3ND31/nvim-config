@@ -24,7 +24,7 @@ return {
 				desc = "New Terminal",
 			},
 			{
-				"<leader>gg",
+				"<C-g>",
 				function()
 					LazygitToggle()
 				end,
@@ -32,13 +32,48 @@ return {
 				desc = "Lazygit",
 			},
 			{
-				"<localleader>sr",
+				"<leader>gg",
+				function()
+					LazygitToggle()
+				end,
+				mode = { "n" },
+				desc = "Lazygit",
+			},
+			{
+				"<leader>rs",
 				function()
 					ReplToggle()
 				end,
-				ft = { "clojure" },
-				mode = { "n", "t" },
-				desc = "Start Repl",
+				ft = { "clojure", "toggleterm" },
+				mode = { "n" },
+				desc = "Repl",
+			},
+			{
+				"<leader>rc",
+				function()
+					CReplToggle()
+				end,
+				ft = { "clojure", "toggleterm" },
+				mode = { "n" },
+				desc = "Catalyst Repl",
+			},
+			{
+				"<C-r>s",
+				function()
+					ReplToggle()
+				end,
+				ft = { "clojure", "toggleterm" },
+				mode = { "t" },
+				desc = "Repl",
+			},
+			{
+				"<C-r>c",
+				function()
+					CReplToggle()
+				end,
+				ft = { "clojure", "toggleterm" },
+				mode = { "t" },
+				desc = "Catalyst Repl",
 			},
 		},
 		config = function(_, opts)
@@ -46,6 +81,15 @@ return {
 			local Terminal = require("toggleterm.terminal").Terminal
 
 			local float = Terminal:new({ direction = "float", hidden = true })
+
+			local crepl = Terminal:new({
+				direction = "float",
+				on_open = function(_)
+					vim.cmd("stopinsert!")
+				end,
+				cmd = "lein catalyst-repl",
+				hidden = true,
+			})
 
 			local repl = Terminal:new({
 				direction = "float",
@@ -77,6 +121,10 @@ return {
 
 			function ReplToggle()
 				repl:toggle()
+			end
+
+			function CReplToggle()
+				crepl:toggle()
 			end
 		end,
 	},
