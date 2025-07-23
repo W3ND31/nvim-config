@@ -63,7 +63,7 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 -- lsp keymaps
 map("n", "<leader>cl", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>zz", { desc = "Goto Declaration" })
-map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>zz", { desc = "Goto Declaration" })
+map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>zz", { desc = "Goto Declaration" }) 
 map("n", "K", function()
 	return vim.lsp.buf.hover()
 end, { desc = "Hover" })

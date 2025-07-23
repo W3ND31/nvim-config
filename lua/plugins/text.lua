@@ -38,7 +38,6 @@ return {
 				mode = { "n", "x" },
 				desc = "Paste Before and Jump to End (Yanky)",
 			},
-
 			{
 				"<c-n>",
 				"<Plug>(YankyPreviousEntry)",
@@ -76,16 +75,33 @@ return {
 	{
 		"kevinhwang91/nvim-ufo",
 		version = "*",
-		opts = {
-			provider_selector = function(bufnr, filetype, buftype)
-				return { "treesitter", "indent" }
-			end,
-		},
+		opts = {},
 		dependencies = {
 			{
 				"kevinhwang91/promise-async",
 				version = "*",
 			},
 		},
+		config = function(opts)
+			local ufo = require("ufo")
+
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities.textDocument.foldingRange = {
+				dynamicRegistration = false,
+				lineFoldingOnly = true,
+			}
+			local language_servers = vim.lsp.get_clients() -- or list servers manually like {'gopls', 'clangd'}
+			for _, ls in ipairs(language_servers) do
+				require("lspconfig")[ls].setup({
+					capabilities = capabilities,
+					-- you can add other fields for setting up lsp server in this table
+				})
+			end
+
+			vim.keymap.set("n", "zR", ufo.openAllFolds)
+			vim.keymap.set("n", "zM", ufo.closeAllFolds)
+
+			ufo.setup(opts)
+		end,
 	},
 }

@@ -1,7 +1,7 @@
 return {
 	{
 		"mason-org/mason-lspconfig.nvim",
-    version = "*",
+		version = "*",
 		opts = {
 			ensure_installed = {
 				"lua_ls",
@@ -124,17 +124,4 @@ return {
 			},
 		},
 	},
-	{
-		"MeanderingProgrammer/render-markdown.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
-		version = "*",
-		---@module 'render-markdown'
-		---@type render.md.UserConfig
-		opts = {
-			completions = {
-				lsp = { enabled = true },
-			},
-		},
-	},
 }
-

@@ -20,7 +20,7 @@ return {
 			preview = {
 				enabled = true, -- show directory structure in Telescope preview
 				git_status = true, -- show branch name, an ahead/behind counter, and the git status of each file/folder
-				git_fetch = true, -- fetch from remote, used to display the number of commits ahead/behind, requires git authorization
+				git_fetch = false, -- fetch from remote, used to display the number of commits ahead/behind, requires git authorization
 				show_hidden = true, -- show hidden files/folders
 			},
 		},
@@ -35,6 +35,5 @@ return {
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
 		{ "Shatur/neovim-session-manager" },
-		{ "ibhagwan/fzf-lua", version = "*" },
 	},
 }
