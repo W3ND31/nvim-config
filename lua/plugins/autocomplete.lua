@@ -68,6 +68,7 @@ return {
 					end, { "i", "s" }),
 				}),
 				sources = {
+					{ name = "conjure" },
 					-- Copilot Source
 					{ name = "copilot", group_index = 2 },
 					-- Other Sources

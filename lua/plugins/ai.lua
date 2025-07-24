@@ -17,16 +17,16 @@ return {
 		},
 	},
 
-	{
-		"ravitemer/mcphub.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		build = "npm install -g mcp-hub", -- Installs `mcp-hub` node binary globally
-		config = function()
-			require("mcphub").setup()
-		end,
-	},
+	-- {
+	-- 	"ravitemer/mcphub.nvim",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 	},
+	-- 	build = "npm install -g mcp-hub", -- Installs `mcp-hub` node binary globally
+	-- 	config = function()
+	-- 		require("mcphub").setup()
+	-- 	end,
+	-- },
 	{
 		"yetone/avante.nvim",
 		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
@@ -59,16 +59,16 @@ return {
 					model = "gpt-4.1", -- your desired model (or use gpt-4o, etc.)
 				},
 			},
-			system_prompt = function()
-				local hub = require("mcphub").get_hub_instance()
-				return hub and hub:get_active_servers_prompt() or ""
-			end,
+			-- system_prompt = function()
+			-- 	local hub = require("mcphub").get_hub_instance()
+			-- 	return hub and hub:get_active_servers_prompt() or ""
+			-- end,
 			-- Using function prevents requiring mcphub before it's loaded
-			custom_tools = function()
-				return {
-					require("mcphub.extensions.avante").mcp_tool(),
-				}
-			end,
+			-- custom_tools = function()
+			-- 	return {
+			-- 		require("mcphub.extensions.avante").mcp_tool(),
+			-- 	}
+			-- end,
 		},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -76,10 +76,10 @@ return {
 			--- The below dependencies are optional,
 			"echasnovski/mini.pick", -- for file_selector provider mini.pick
 			"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-			"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-			"ibhagwan/fzf-lua", -- for file_selector provider fzf
+			"hrsh7th/nvim-cmp",     -- autocompletion for avante commands and mentions
+			"ibhagwan/fzf-lua",     -- for file_selector provider fzf
 			"stevearc/dressing.nvim", -- for input provider dressing
-			"folke/snacks.nvim", -- for input provider snacks
+			"folke/snacks.nvim",    -- for input provider snacks
 			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
 			"zbirenbaum/copilot.lua", -- for providers='copilot'
 			-- {
