@@ -22,5 +22,7 @@ return {
 		---@diagnostic disable-next-line: missing-fields
 		require("nvim-treesitter.configs").setup(opts)
 	end,
-	dependencies = { "OXY2DEV/markview.nvim" },
+	dependencies = {
+		{ "OXY2DEV/markview.nvim" },
+	},
 }

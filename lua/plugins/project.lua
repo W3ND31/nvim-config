@@ -9,10 +9,10 @@ return {
 			"~/dev/nu/mini-meta-repo/packages/credit_card/bill_details",
 			"~/dev/nu/mini-meta-repo/packages/credit_card/credit_card",
 			"~/dev/nu/mini-meta-repo/packages/tx_details/",
-			"~/dev/*",
 			"~/dev/Greenhouse/*",
-			"~/.config/nvim*",
-			"~/.config/*tty*",
+      "~/.zshrc",
+      "~/.nurc",
+			"~/.config/*",
 			"~/stow/*",
 		},
 		picker = {

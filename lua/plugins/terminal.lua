@@ -103,6 +103,7 @@ return {
 			local lazygit = Terminal:new({
 				direction = "float",
 				clear_env = false,
+				cmd = "lazygit",
 				on_open = function(term)
 					vim.cmd("startinsert!")
 					vim.api.nvim_buf_set_keymap(term.bufnr, "t", "<esc>", "<esc>", { noremap = true, silent = true })

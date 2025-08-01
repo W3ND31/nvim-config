@@ -28,19 +28,19 @@ return {
 	{
 		"HiPhish/rainbow-delimiters.nvim",
 	},
-	{
-		"RaafatTurki/corn.nvim",
-		event = "LspAttach",
-		opts = {
-			border_style = "rounded",
-			item_preprocess_func = function(item)
-				return item
-			end,
-		},
-		config = function(_, opts)
-			local corn = require("corn")
-			vim.diagnostic.config({ virtual_text = false })
-			corn.setup(opts)
-		end,
-	},
+	-- {
+	-- 	"RaafatTurki/corn.nvim",
+	-- 	event = "LspAttach",
+	-- 	opts = {
+	-- 		border_style = "rounded",
+	-- 		item_preprocess_func = function(item)
+	-- 			return item
+	-- 		end,
+	-- 	},
+	-- 	config = function(_, opts)
+	-- 		local corn = require("corn")
+	-- 		vim.diagnostic.config({ virtual_text = false })
+	-- 		corn.setup(opts)
+	-- 	end,
+	-- },
 }
