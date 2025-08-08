@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-field
 return {
 	"nvim-lualine/lualine.nvim",
 	version = "*",
@@ -36,6 +37,11 @@ return {
 				"fancy_lsp_servers", -- Investigate if the lsp loading can be included on lualine instead ahead it
 				{ "fancy_macro" },
 				{ "fancy_searchcount" },
+				{
+					require("noice").api.status.command.get,
+					cond = require("noice").api.status.command.has,
+					color = { fg = "#ff9e64" },
+				},
 			},
 			lualine_y = {
 				{ "fancy_filetype", ts_icon = "" },

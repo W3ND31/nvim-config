@@ -54,20 +54,20 @@ return {
 				},
 				config = function() end,
 			},
-			{
-				"PaterJason/cmp-conjure",
-			},
+			-- {
+			-- 	"PaterJason/cmp-conjure",
+			-- },
 		},
 	},
-	{
-		"PaterJason/cmp-conjure",
-		config = function()
-			local cmp = require("cmp")
-			local config = cmp.get_config()
-			table.insert(config.sources, { name = "conjure" })
-			return cmp.setup(config)
-		end,
-	},
+	-- {
+	-- 	"PaterJason/cmp-conjure",
+	-- 	config = function()
+	-- 		local cmp = require("cmp")
+	-- 		local config = cmp.get_config()
+	-- 		table.insert(config.sources, { name = "conjure" })
+	-- 		return cmp.setup(config)
+	-- 	end,
+	-- },
 	{
 		"julienvincent/nvim-paredit",
 		config = function(opts)

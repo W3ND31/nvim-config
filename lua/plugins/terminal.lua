@@ -23,7 +23,7 @@ return {
 				mode = { "n", "t" },
 				desc = "New Terminal",
 			},
-			{
+			--[[ 			{
 				"<C-g>",
 				function()
 					LazygitToggle()
@@ -38,7 +38,7 @@ return {
 				end,
 				mode = { "n" },
 				desc = "Lazygit",
-			},
+			}, ]]
 			{
 				"<leader>rs",
 				function()
@@ -84,26 +84,28 @@ return {
 
 			local crepl = Terminal:new({
 				direction = "float",
+				cmd = "lein catalyst-repl",
 				on_open = function(_)
 					vim.cmd("stopinsert!")
 				end,
-				cmd = "lein catalyst-repl",
 				hidden = true,
 			})
 
 			local repl = Terminal:new({
 				direction = "float",
+				cmd = "lein repl",
 				on_open = function(_)
 					vim.cmd("stopinsert!")
 				end,
-				cmd = "lein repl",
 				hidden = true,
 			})
 
-			local lazygit = Terminal:new({
+			--[[ local lazygit = Terminal:new({
+				name = "Lazygit",
+				dir = "git_dir",
 				direction = "float",
 				clear_env = false,
-				cmd = "lazygit",
+				close_on_exit = false,
 				on_open = function(term)
 					vim.cmd("startinsert!")
 					vim.api.nvim_buf_set_keymap(term.bufnr, "t", "<esc>", "<esc>", { noremap = true, silent = true })
@@ -111,14 +113,14 @@ return {
 				float_opts = { border = "double" },
 				hidden = true,
 			})
-
+ ]]
 			function FloatToggle()
 				float:toggle()
 			end
 
-			function LazygitToggle()
-				lazygit:toggle()
-			end
+			-- function LazygitToggle()
+			-- 	lazygit:toggle()
+			-- end
 
 			function ReplToggle()
 				repl:toggle()

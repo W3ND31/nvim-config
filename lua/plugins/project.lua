@@ -10,10 +10,11 @@ return {
 			"~/dev/nu/mini-meta-repo/packages/credit_card/credit_card",
 			"~/dev/nu/mini-meta-repo/packages/tx_details/",
 			"~/dev/Greenhouse/*",
-      "~/.zshrc",
-      "~/.nurc",
+			"~/*.zshrc",
+			"~/*.nurc",
 			"~/.config/*",
-			"~/stow/*",
+			"~/stow",
+			"~/repos/*",
 		},
 		picker = {
 			type = "telescope", -- or "fzf-lua"

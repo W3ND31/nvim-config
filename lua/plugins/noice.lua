@@ -2,7 +2,9 @@ return {
 	"folke/noice.nvim",
 	event = "VeryLazy",
 	keys = {
-		{ "<leader>nh", "<cmd>NoiceHistory<cr>", desc = "History" },
+		{ "<leader>nn", "<cmd>NoiceTelescope<cr>", desc = "History" },
+		{ "<leader>na", "<cmd>NoiceAll<cr>", desc = "All" },
+		{ "<leader>ne", "<cmd>NoiceErrors<cr>", desc = "Errors" },
 	},
 	opts = {
 		views = {

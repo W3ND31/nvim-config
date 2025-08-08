@@ -64,16 +64,7 @@ return {
 	{
 		"OXY2DEV/markview.nvim",
 		lazy = false,
-		ft = { "markdown", "md", "Avante", "eca-chat" },
-
-		-- For `nvim-treesitter` users.
+		ft = { "markdown", "md" },
 		priority = 49,
-
-		-- For blink.cmp's completion
-		-- source
-		-- dependencies = {
-		--     "saghen/blink.cmp"
-		-- },
 	},
-	{ "akinsho/git-conflict.nvim", version = "*", config = true },
 }

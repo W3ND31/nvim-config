@@ -3,6 +3,7 @@ vim.g.maplocalleader = ","
 
 vim.o.laststatus = 3 -- global statusline
 vim.o.showmode = false
+vim.o.autoread = true
 
 vim.o.clipboard = "unnamedplus"
 

@@ -15,6 +15,7 @@ return {
 			{ "<leader>b", group = "Buffer" },
 			{ "<leader>g", group = "Git" },
 			{ "<leader>c", group = "Code" },
+			{ "<leader>n", group = "Noice" },
 			{ "<leader>q", group = "Quit" },
 			{ "<leader>w", group = "Windows" },
 			{ "<leader>s", group = "Search" },
