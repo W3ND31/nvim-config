@@ -23,7 +23,7 @@ return {
 				mode = { "n", "t" },
 				desc = "New Terminal",
 			},
-			--[[ 			{
+			{
 				"<C-g>",
 				function()
 					LazygitToggle()
@@ -38,7 +38,7 @@ return {
 				end,
 				mode = { "n" },
 				desc = "Lazygit",
-			}, ]]
+			},
 			{
 				"<leader>rs",
 				function()
@@ -100,9 +100,10 @@ return {
 				hidden = true,
 			})
 
-			--[[ local lazygit = Terminal:new({
+			local lazygit = Terminal:new({
 				name = "Lazygit",
 				dir = "git_dir",
+				cmd = "lazygit",
 				direction = "float",
 				clear_env = false,
 				close_on_exit = false,
@@ -113,14 +114,14 @@ return {
 				float_opts = { border = "double" },
 				hidden = true,
 			})
- ]]
+
 			function FloatToggle()
 				float:toggle()
 			end
 
-			-- function LazygitToggle()
-			-- 	lazygit:toggle()
-			-- end
+			function LazygitToggle()
+				lazygit:toggle()
+			end
 
 			function ReplToggle()
 				repl:toggle()
