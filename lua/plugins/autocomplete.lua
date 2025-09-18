@@ -12,17 +12,14 @@ return {
 		"saghen/blink.cmp",
 		dependencies = {
 			"rafamadriz/friendly-snippets",
-			"giuxtaposition/blink-cmp-copilot",
+			"fang2hou/blink-copilot",
 			"PaterJason/cmp-conjure",
 		},
 		version = "1.*",
 		opts = {
-			-- C-space: Open menu or open docs if already open
-			-- C-n/C-p or Up/Down: Select next/previous item
-			-- C-e: Hide menu
-			-- C-k: Toggle signature help (if signature.enabled = true)
-			keymap = { preset = "super-tab" },
-
+			keymap = {
+				preset = "super-tab",
+			},
 			appearance = {
 				nerd_font_variant = "mono",
 				kind_icons = {
@@ -59,13 +56,19 @@ return {
 					TypeParameter = "󰬛",
 				},
 			},
-
-			completion = { documentation = { auto_show = true } },
-
+			completion = {
+				menu = {
+					border = "single",
+				},
+				documentation = {
+					auto_show = true,
+					window = { border = "single" },
+				},
+			},
 			sources = {
 				default = {
-					"lsp",
 					"conjure",
+					"lsp",
 					"copilot",
 					"path",
 					"snippets",
@@ -74,22 +77,14 @@ return {
 				providers = {
 					copilot = {
 						name = "copilot",
-						module = "blink-cmp-copilot",
+						module = "blink-copilot",
 						score_offset = 100,
 						async = true,
-						transform_items = function(_, items)
-							local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
-							local kind_idx = #CompletionItemKind + 1
-							CompletionItemKind[kind_idx] = "Copilot"
-							for _, item in ipairs(items) do
-								item.kind = kind_idx
-							end
-							return items
-						end,
 					},
 					conjure = {
 						name = "conjure",
 						module = "blink.compat.source",
+						score_offset = 0,
 					},
 				},
 			},

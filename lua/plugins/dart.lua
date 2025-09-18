@@ -6,8 +6,4 @@ return {
 		"nvim-lua/plenary.nvim",
 		"stevearc/dressing.nvim", -- optional for vim.ui.select
 	},
-	opts = {
-		flutter_lookup_cmd = "asdf where flutter",
-	},
 }
-

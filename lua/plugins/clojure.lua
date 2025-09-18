@@ -18,7 +18,6 @@ return {
 	},
 	{
 		"Olical/conjure",
-		ft = { "clojure" },
 		lazy = true,
 		version = "*",
 		config = function()

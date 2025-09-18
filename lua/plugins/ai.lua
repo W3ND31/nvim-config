@@ -10,12 +10,15 @@ return {
 			suggestion = {
 				enabled = false,
 			},
+			filetypes = {
+				markdown = true,
+				help = true,
+			},
 		},
-		dependencies = { "giuxtaposition/blink-cmp-copilot" },
 	},
 	{
-		-- "editor-code-assistant/eca-nvim",
-		dir = "~/repos/eca-nvim",
+		"editor-code-assistant/eca-nvim",
+		-- dir = "~/repos/eca-nvim",
 		opts = {
 			debug = true,
 		},
