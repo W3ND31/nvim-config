@@ -10,7 +10,7 @@ return {
 		},
 		keys = {
 			{
-				"<C-t>",
+				"<C-f>",
 				function()
 					FloatToggle()
 				end,

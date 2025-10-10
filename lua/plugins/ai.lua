@@ -20,7 +20,9 @@ return {
 		"editor-code-assistant/eca-nvim",
 		-- dir = "~/repos/eca-nvim",
 		opts = {
-			debug = true,
+			behaviour = {
+				auto_set_keymaps = false,
+			},
 		},
 		keys = {
 			{

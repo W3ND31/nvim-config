@@ -39,6 +39,7 @@ vim.filetype.add({
 		["${HOME}/.bashrc"] = "bash",
 		[".*/zsh_scripts/.*"] = "bash", -- Example: files in a 'zsh_scripts' directory
 		[".*/.zshrc"] = "bash",
+		[".*/.jrxml"] = "xml",
 	},
 })
 
