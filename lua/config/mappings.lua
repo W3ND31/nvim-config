@@ -101,6 +101,8 @@ map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" 
 
 -- Formatting keymaps
 map({ "n", "v" }, "<leader>cF", vim.lsp.buf.format, { desc = "Format" })
+map({ "n", "v" }, "<M-F>", vim.lsp.buf.format, { desc = "Format" })
+map({ "n", "v" }, "<A-F>", vim.lsp.buf.format, { desc = "Format" })
 map({ "i", "n", "v" }, "È", function()
 	vim.lsp.buf.format()
 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)

@@ -3,7 +3,6 @@ require("config.mappings")
 require("config.deleted-mappings")
 require("config.commands")
 
--- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -22,33 +21,26 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
--- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
-		-- import your plugins
 		{ import = "plugins" },
 	},
-	-- Configure any other settings here. See the documentation for more details.
-	-- colorscheme that will be used when installing plugins.
 	install = { colorscheme = { "tokyonight","habamax" } },
-	-- automatically check for plugin updates
 	checker = {
 		enabled = true,
-		notify = true, -- get a notification when new updates are found
-		frequency = 3600, -- check for updates every hour
+		notify = true,
+		frequency = 3600,
 	},
 	change_detection = {
-		-- automatically check for config file changes and reload the ui
 		enabled = true,
-		notify = true, -- get a notification when changes are found
+		notify = true,
 	},
 	performance = {
 		cache = {
 			enabled = true,
 		},
-		reset_packpath = true, -- reset the package path to improve startup time
+		reset_packpath = true,
 		rtp = {
-			---@type string[] list any plugins you want to disable here
 			disabled_plugins = {},
 		},
 	},

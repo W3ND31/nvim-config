@@ -49,15 +49,15 @@ vim.g["conjure#client#clojure#nrepl#test#current_form_names"] =
 vim.opt.wrap = true
 vim.g.autoformat = false
 
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 vim.diagnostic.config({ virtual_text = true })
 vim.opt.relativenumber = true
 
 -- Fold options
-vim.o.foldcolumn = "1" -- '0' is not bad
-vim.o.fillchars = [[eob: ,fold:…,foldopen:,foldsep: ,foldclose:]]
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
+-- vim.o.foldcolumn = "1" -- '0' is not bad
+-- vim.o.fillchars = [[eob: ,fold:…,foldopen:,foldsep: ,foldclose:]]
+-- vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+-- vim.o.foldlevelstart = 99
+-- vim.o.foldenable = true

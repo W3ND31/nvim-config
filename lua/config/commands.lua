@@ -1,17 +1,17 @@
--- Recarrega o buffer automaticamente ao voltar o foco ou trocar de buffer
-
-vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
-
-	pattern = "*",
-
-	command = "if mode() != 'c' | checktime | endif",
-})
-
--- Notificação opcional se o arquivo mudou externamente
-
-vim.api.nvim_create_autocmd("FileChangedShellPost", {
-
-	pattern = "*",
-
-	command = 'echohl WarningMsg | echo "File reloaded" | echohl None',
-})
+-- -- Recarrega o buffer automaticamente ao voltar o foco ou trocar de buffer
+--
+-- vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+--
+-- 	pattern = "*",
+--
+-- 	command = "if mode() != 'c' | checktime | endif",
+-- })
+--
+-- -- Notificação opcional se o arquivo mudou externamente
+--
+-- vim.api.nvim_create_autocmd("FileChangedShellPost", {
+--
+-- 	pattern = "*",
+--
+-- 	command = 'echohl WarningMsg | echo "File reloaded" | echohl None',
+-- })
