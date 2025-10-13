@@ -15,10 +15,18 @@ map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, 
 map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 
 -- Move to window using the <ctrl> hjkl keys
-map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
-map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
-map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
-map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
+map("n", "<C-Left>", "<C-w>h", { desc = "Go to Left Window", noremap = true })
+map("n", "<C-Down>", "<C-w>j", { desc = "Go to Lower Window", noremap = true })
+map("n", "<C-Up>", "<C-w>k", { desc = "Go to Upper Window", noremap = true })
+map("n", "<C-Right>", "<C-w>l", { desc = "Go to Right Window", noremap = true })
+
+-- Move to window using the <ctrl> hjkl keys
+map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window", noremap = true })
+map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window", noremap = true })
+map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window", noremap = true })
+map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", noremap = true })
+
+-- Split windows
 map("n", "<leader>wd", "<C-W>s", { desc = "Split Down", remap = true })
 map("n", "<leader>wr", "<C-W>v", { desc = "Split Right", remap = true })
 map("n", "<leader>wq", "<C-W>c", { desc = "Quit", remap = true })
@@ -100,13 +108,13 @@ end, { desc = "Rename" })
 map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 
 -- Formatting keymaps
-map({ "n", "v" }, "<leader>cF", vim.lsp.buf.format, { desc = "Format" })
-map({ "n", "v" }, "<M-F>", vim.lsp.buf.format, { desc = "Format" })
-map({ "n", "v" }, "<A-F>", vim.lsp.buf.format, { desc = "Format" })
-map({ "i", "n", "v" }, "È", function()
-	vim.lsp.buf.format()
-	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
-end, { desc = "Format" })
+-- map({ "n", "v" }, "<leader>cF", vim.lsp.buf.format, { desc = "Format" })
+-- map({ "n", "v" }, "<M-F>", vim.lsp.buf.format, { desc = "Format" })
+-- map({ "n", "v" }, "<A-F>", vim.lsp.buf.format, { desc = "Format" })
+-- map({ "i", "n", "v" }, "È", function()
+-- 	vim.lsp.buf.format()
+-- 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
+-- end, { desc = "Format" })
 
 -- Terminal
 function _G.set_terminal_keymaps()

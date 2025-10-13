@@ -66,12 +66,12 @@ return {
 			},
 		},
 	},
-	-- {
-	-- 	"altermo/ultimate-autopair.nvim",
-	-- 	event = { "InsertEnter", "CmdlineEnter" },
-	-- 	branch = "v0.6",
-	-- 	opts = {},
-	-- },
+	{
+		"altermo/ultimate-autopair.nvim",
+		event = { "InsertEnter", "CmdlineEnter" },
+		branch = "v0.6",
+		opts = {},
+	},
 	-- {
 	-- 	"kevinhwang91/nvim-ufo",
 	-- 	version = "5b75cf5fdb74054fc8badb2e7ca9911dc0470d94",
