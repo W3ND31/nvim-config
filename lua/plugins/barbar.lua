@@ -1,7 +1,7 @@
 return {
 	"romgrk/barbar.nvim",
 	lazy = false,
-  version = "*",
+	version = "*",
 	dependencies = {
 		"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
 		"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
@@ -10,8 +10,7 @@ return {
 		tabpages = false,
 		clickable = true,
 		sidebar_filetypes = {
-			["snacks_picker_list"] = {event = 'BufWipeout', text = '', align = 'left'},
-			-- ["snacks_picker_input"] = false,
+			["neo-tree"] = true,
 		},
 	},
 	keys = {
@@ -28,4 +27,3 @@ return {
 		{ "<C-q>", "<cmd>BufferClose<CR>", mode = "n", desc = "Quit Tab" },
 	},
 }
-

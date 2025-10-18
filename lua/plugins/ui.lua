@@ -1,6 +1,12 @@
 return {
 	"folke/noice.nvim",
 	event = "VeryLazy",
+	keys = {
+		{ "<leader>nn", "<cmd>NoiceSnacks<cr>", desc = "History" },
+		{ "<leader>na", "<cmd>NoiceAll<cr>", desc = "All" },
+		{ "<leader>ne", "<cmd>NoiceErrors<cr>", desc = "Errors" },
+		{ "<leader>nd", "<cmd>NoiceDismiss<cr>", desc = "Dismiss" },
+	},
 	opts = {
 		views = {
 			cmdline_popup = {
