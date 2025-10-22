@@ -32,7 +32,7 @@ return {
 		dashboard.section.header.val = vim.split(logo, "\n")
 		dashboard.section.buttons.val = {
 			dashboard.button("p", " " .. " Projects", "<cmd>NeovimProjectDiscover<CR>"),
-			dashboard.button("n", " " .. " Nvim", "<cmd>NeovimProjectLoad ~/.config/nvim<CR>"),
+			dashboard.button("n", " " .. " Nvim", "<cmd>NeovimProjectLoad ~/stow/nvim/.config/nvim<CR>"),
 			dashboard.button("m", "󱌢" .. "  Mason", "<cmd>Mason<CR>"),
 			dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
 			dashboard.button("q", " " .. " Quit", ":qa<CR>"),
