@@ -104,7 +104,7 @@ map("n", "<leader>cC", vim.lsp.codelens.refresh, { desc = "Refresh & Display Cod
 map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
 map("n", "<leader>cL", function()
 	require("lint").try_lint()
-end, { desc = "Rename" })
+end, { desc = "Lint" })
 map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 
 -- Formatting keymaps

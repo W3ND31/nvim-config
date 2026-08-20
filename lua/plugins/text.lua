@@ -115,8 +115,8 @@ return {
 					require("statuscol").setup({
 						relculright = true,
 						segments = {
-							{ text = { builtin.foldfunc }, click = "v:lua.ScFa" },
-							{ text = { "%s" }, click = "v:lua.ScSa" },
+							{ text = { builtin.foldfunc },      click = "v:lua.ScFa" },
+							{ text = { "%s" },                  click = "v:lua.ScSa" },
 							{ text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
 						},
 					})
@@ -190,5 +190,15 @@ return {
 			---Function to call after (un)comment
 			post_hook = nil,
 		},
+	},
+	{
+		"mg979/vim-visual-multi",
+		branch = "master",
+		init = function()
+			vim.g.VM_maps = {
+				["Find Under"] = "<C-d>",
+				["Find Subword Under"] = "<C-d>",
+			}
+		end
 	},
 }

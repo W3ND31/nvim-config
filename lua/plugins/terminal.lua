@@ -69,8 +69,9 @@ return {
 			local crepl = Terminal:new({
 				direction = "float",
 				cmd = "lein catalyst-repl",
-				on_open = function(_)
+				on_open = function(term)
 					vim.cmd("stopinsert!")
+          vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
 				end,
 				hidden = true,
 			})
@@ -78,8 +79,9 @@ return {
 			local repl = Terminal:new({
 				direction = "float",
 				cmd = "lein repl",
-				on_open = function(_)
+				on_open = function(term)
 					vim.cmd("stopinsert!")
+          vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
 				end,
 				hidden = true,
 			})

@@ -7,6 +7,7 @@ return {
 			"~/dev/nu/*",
 			"~/dev/nu/mini-meta-repo/stormguild/",
 			"~/dev/nu/mini-meta-repo/packages/credit_card/credit_card",
+			"~/dev/nu/mini-meta-repo/packages/rosetta",
       "~/dev/OPME/*",
       "~/dev/GuardaVolumes/*",
 			"~/repos/*",

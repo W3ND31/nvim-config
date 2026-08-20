@@ -15,20 +15,7 @@ return {
 				"jsonls",
 				"gh_actions_ls",
 			},
-			handlers = {
-				function(server_name)
-					local capabilities = vim.lsp.protocol.make_client_capabilities()
-					capabilities =
-						vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-
-					local servers = {}
-
-					local server = servers[server_name] or {}
-					server.capabilities = capabilities
-
-					require("lspconfig")[server_name].setup(server)
-				end,
-			},
+			automatic_enable = true,
 		},
 		dependencies = {
 			{
@@ -53,24 +40,31 @@ return {
 				version = "*",
 				lazy = false,
 				config = function()
-					local function custom_clojure_root_dir(pattern)
-						local util = require("lspconfig.util")
-						local fallback = vim.loop.cwd()
-						local patterns =
-							{ "project.clj", "deps.edn", "build.boot", "shadow-cljs.edn", ".git", "bb.edn" }
-						local root = util.root_pattern(patterns)(pattern)
-						return (root or fallback)
+					local capabilities = vim.lsp.protocol.make_client_capabilities()
+					local ok, cmp_lsp = pcall(require, "cmp_nvim_lsp")
+					if ok then
+						capabilities =
+							vim.tbl_deep_extend("force", capabilities, cmp_lsp.default_capabilities())
 					end
-					require("lspconfig").clojure_lsp.setup({
-						root_dir = custom_clojure_root_dir,
+
+					vim.lsp.config("*", {
+						capabilities = capabilities,
 					})
 
-					-- INFO: Ensure custom keymaps
+					vim.lsp.config("clojure_lsp", {
+						root_markers = {
+							"project.clj",
+							"deps.edn",
+							"build.boot",
+							"shadow-cljs.edn",
+							".git",
+							"bb.edn",
+						},
+					})
+
 					vim.api.nvim_create_autocmd("LspAttach", {
 						group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 						callback = function(event)
-							-- INFO: The following two autocommands are used to highlight references of the
-							-- word under your cursor when your cursor rests there for a little while.
 							local client = vim.lsp.get_client_by_id(event.data.client_id)
 							if client and client.server_capabilities.documentHighlightProvider then
 								vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -97,7 +91,6 @@ return {
 		config = function()
 			require("lint").linters_by_ft = {
 				clojure = { "clj-kondo" },
-				lua = { "luacheck" },
 				sh = { "shellcheck" },
 				zsh = { "shellcheck" },
 				javascript = { "eslint_d" },

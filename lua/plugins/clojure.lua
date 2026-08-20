@@ -1,7 +1,6 @@
 return {
 	{
 		"m00qek/baleia.nvim",
-		version = "*",
 		lazy = false,
 		opts = {},
 		config = function(opts)
@@ -19,7 +18,6 @@ return {
 	{
 		"Olical/conjure",
 		lazy = true,
-		version = "*",
 		config = function()
 			require("conjure.main").main()
 			require("conjure.mapping")["on-filetype"]()
@@ -69,7 +67,7 @@ return {
 	-- },
 	{
 		"julienvincent/nvim-paredit",
-		config = function(opts)
+		config = function(_, opts)
 			require("nvim-paredit").setup(opts)
 		end,
 	},
